@@ -1,0 +1,26 @@
+server:
+  port: 8888
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: kyxs-cloud-personnel
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      discovery:
+        # 注册中心地址
+        server-addr: 127.0.0.1:8848
+        # 注册到注册中心
+        register-enabled: true
+        metadata:
+          # 网关策略路由配置
+          group_name: default
+      config:
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+        file-extension: yml
+        refresh-enabled: true
+        shared-configs:
+        #- application-hrcloud.${spring.cloud.nacos.config.file-extension}
+        #- ${spring.application.name}-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}

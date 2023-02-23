@@ -1,0 +1,46 @@
+server:
+  port: 8888
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql://10.82.26.113:3306/ciic-hrcloud-client?characterEncoding=utf8
+  redis:
+    host: 10.82.26.105
+    port: 7006
+    password:
+    timeout: 10000
+    jedis:
+      pool:
+        # 连接池最大连接数（使用负值表示没有限制）
+        max-active: 100
+        # 连接池最大阻塞等待时间（使用负值表示没有限制）
+        max-wait: -1
+        # 连接池中的最大空闲连接
+        max-idle: 30
+        # 连接池中的最小空闲连接
+        min-idle: 10
+  # Rabbitmq配置
+  rabbitmq:
+    host: 10.82.26.172
+    port: 32394 #31710
+    username: admin
+    password: admin
+    listener:
+      simple:
+        acknowledge-mode: auto
+        default-requeue-rejected: true
+        retry:
+          max-attempts: 5  #最大重试次数
+          enabled: true
+          initial-interval: 5000
+#日志格式
+logging:
+  pattern:
+    console: "[%thread] %-5level %logger{36} - %msg%n"
+
+#自己写的mapper路径
+mybatis-plus:
+  type-aliases-package: com.kyxs.cloud.personnel.api.pojo
+  mapper-locations: classpath:/mapper/*Mapper.xml

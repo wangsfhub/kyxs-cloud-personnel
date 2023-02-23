@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.kyxs.cloud</groupId>
+    <artifactId>kyxs-cloud-personnel</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>kyxs-cloud-personnel</name>
+    <packaging>pom</packaging>
+    <description>kyxs-cloud-personnel</description>
+    <modules>
+        <module>kyxs-cloud-personnel-service</module>
+        <module>kyxs-cloud-personnel-api</module>
+    </modules>
+    <properties>
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
+
+        <!--Maven 多模块版本管理插件。 替换 pom 中的版本变量-->
+        <flatten-maven-plugin.version>1.2.5</flatten-maven-plugin.version>
+        <!--sonar 代码扫描-->
+        <sonar.version>3.8.0.2131</sonar.version>
+    </properties>
+
+    <build>
+        <plugins>
+            <!--Maven 多模块版本管理插件。 替换 pom 中的版本变量-->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <version>${flatten-maven-plugin.version}</version>
+                <configuration>
+                    <!-- 是否更新pom文件，此处还有更高级的用法 -->
+                    <updatePomFile>true</updatePomFile>
+                    <flattenMode>resolveCiFriendliesOnly</flattenMode>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>flatten</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>flatten</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>flatten.clean</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+    <profiles>
+        <profile>
+            <id>release</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <distributionManagement>
+                <repository>
+                    <id>hrcloud-release</id>
+                    <name>hrcloud-release</name>
+                    <url>http://10.82.26.131:8081/repository/maven-releases/</url>
+                </repository>
+
+                <snapshotRepository>
+                    <id>hrcloud-snapshot</id>
+                    <name>hrcloud-snapshot</name>
+                    <url>http://10.82.26.131:8081/repository/maven-snapshots/</url>
+                </snapshotRepository>
+            </distributionManagement>
+            <repositories>
+                <repository>
+                    <releases>
+                        <enabled>true</enabled>
+                        <updatePolicy>always</updatePolicy>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                        <updatePolicy>always</updatePolicy>
+                    </snapshots>
+                    <id>maven-public</id>
+                    <name>maven-public</name>
+                    <url>http://10.82.26.131:8081/repository/maven-public/</url>
+                </repository>
+                <repository>
+                    <id>aliyun</id>
+                    <name>aliyun</name>
+                    <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+                </repository>
+            </repositories>
+        </profile>
+    </profiles>
+
+</project>
