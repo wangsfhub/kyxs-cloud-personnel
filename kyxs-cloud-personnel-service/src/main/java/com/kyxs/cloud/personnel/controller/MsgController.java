@@ -1,10 +1,10 @@
 package com.kyxs.cloud.personnel.controller;
 
+import com.kyxs.cloud.core.base.result.R;
+import com.kyxs.cloud.core.base.utils.SpringApplicationContextUtil;
 import com.kyxs.cloud.personnel.enums.MsgProcessorEnum;
 import com.kyxs.cloud.personnel.executor.ServerExecutor;
-import com.kyxs.cloud.personnel.result.R;
 import com.kyxs.cloud.personnel.service.MsgService;
-import com.kyxs.cloud.personnel.util.SpringApplicationContextUtil;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;

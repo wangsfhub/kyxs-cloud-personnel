@@ -1,5 +1,6 @@
-package com.kyxs.cloud.personnel.service;
+package com.kyxs.cloud.personnel.service.Impl;
 
+import com.kyxs.cloud.personnel.service.MsgService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -8,7 +9,7 @@ import java.util.Map;
 
 @Service("WechatMsgService")
 @Slf4j
-public class WechatServiceImpl implements MsgService{
+public class WechatServiceImpl implements MsgService {
     @Override
     public Map getAccount() {
         return new HashMap(){{

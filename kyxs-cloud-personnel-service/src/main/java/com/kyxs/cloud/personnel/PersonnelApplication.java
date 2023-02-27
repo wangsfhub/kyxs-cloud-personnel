@@ -16,7 +16,6 @@ import java.text.SimpleDateFormat;
 @MapperScan({"com.kyxs.**.mapper"})
 @EnableFeignClients(basePackages = {"com.kyxs"})
 @ComponentScan(basePackages = { "com.kyxs"})
-
 public class PersonnelApplication {
 
     public static void main(String[] args) {
