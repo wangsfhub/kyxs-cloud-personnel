@@ -36,12 +36,20 @@ public class EmployeeDto {
 
     @NotBlank(message = "所属公司不能为空！")
     @Schema(title = "所属公司")
-    private Long companyId;
+    private Long company;
 
     @NotBlank(message = "所属部门不能为空！")
     @Schema(title = "所属部门")
     private Long deptId;
 
+    @Schema(title = "岗位")
+    private Long postId;
+
+    @Schema(title = "手机号")
+    private int phone;
+
+    @Schema(title = "邮箱")
+    private String email;
 
     @Schema(title = "性别")
     private String gender;

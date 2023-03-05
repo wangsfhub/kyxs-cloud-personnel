@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kyxs.cloud.personnel.mapper.CodeItemMapper">
+
+    <!--父级查询-->
+    <select id="getCodeItems" resultType="com.kyxs.cloud.personnel.api.pojo.entity.CodeItem">
+        select * from code_item c where exists (select s.id from code_set s where s.set_status='1' and s.id=c.set_id) order by c.code_sort asc
+    </select>
+
+
+</mapper>

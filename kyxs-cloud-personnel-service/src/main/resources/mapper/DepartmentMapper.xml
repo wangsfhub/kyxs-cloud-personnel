@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kyxs.cloud.personnel.mapper.DepartmentMapper">
+    <resultMap id="BaseResultTreeMap" type="com.kyxs.cloud.personnel.api.pojo.entity.Department">
+        <id column="id" property="id"/>
+        <result column="dept_no" property="deptNo"/>
+        <result column="dept_name" property="deptName"/>
+        <result column="dept_desc" property="deptDesc"/>
+        <result column="super_id" property="superId"/>
+        <result column="dept_type" property="deptType"/>
+        <result column="dept_sort" property="deptSort"/>
+        <result column="head_count"  property="headCount"/>
+        <result column="leader_id"  property="leaderId"/>
+        <result column="create_time"  property="createTime"/>
+        <collection property="children" ofType="com.kyxs.cloud.personnel.api.pojo.entity.Department" select="selectChildrenTree" column="id" javaType="java.util.ArrayList"/>
+    </resultMap>
+    <!--父级查询-->
+    <select id="selectTree" resultMap="BaseResultTreeMap">
+        select * from department where cus_id=#{cusId}
+        <if test="superId!=null and superId!='' and (deptName==null or deptName=='') and (deptType==null or deptType=='')">
+            and super_id=#{superId}
+        </if>
+        <if test="deptName!=null and deptName!=''">
+            and dept_name like '${deptName}%'
+        </if>
+        <if test="deptType!=null and deptType!=''">
+            and dept_type = #{deptType}
+        </if>
+    </select>
+
+    <!--关联集合查询 #{id}要与实体类对应 -->
+    <select id="selectChildrenTree" parameterType="String" resultMap="BaseResultTreeMap">
+        select * from department d where d.super_id=#{id} order by dept_sort asc
+    </select>
+</mapper>
