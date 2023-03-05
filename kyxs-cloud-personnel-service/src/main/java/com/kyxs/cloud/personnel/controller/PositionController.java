@@ -19,6 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @Tag(name = "岗位管理")
@@ -76,4 +77,12 @@ public class PositionController extends BaseController {
     public Map<Long,String> getPositions(@PathVariable(value = "cusId") Long cusId){
         return positionService.getPositions(cusId);
     }
+    @GetMapping("/list/all")
+    @Operation(summary = "查询所有岗位，下拉框显示")
+    public R all(){
+        UserInfo userInfo = UserInfoUtil.getUserInfo();
+        List<Position> list = positionService.list(new LambdaQueryWrapper<Position>().eq(Position::getCusId,userInfo.getCusId()).orderByDesc(Position::getCreateTime));
+        return R.ok(list);
+    }
+
 }

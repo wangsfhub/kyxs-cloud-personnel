@@ -1,5 +1,7 @@
 package com.kyxs.cloud.personnel.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 import com.kyxs.cloud.core.base.annotation.RepeatSubmit;
 import com.kyxs.cloud.core.base.controller.BaseController;
@@ -9,7 +11,9 @@ import com.kyxs.cloud.core.base.mybatisplus.PageQueryDTO;
 import com.kyxs.cloud.core.base.result.R;
 import com.kyxs.cloud.core.base.utils.UserInfoUtil;
 import com.kyxs.cloud.personnel.api.pojo.dto.EmployeeDto;
+import com.kyxs.cloud.personnel.api.pojo.entity.Department;
 import com.kyxs.cloud.personnel.api.pojo.entity.Employee;
+import com.kyxs.cloud.personnel.service.DepartmentService;
 import com.kyxs.cloud.personnel.service.EmployeeService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -17,6 +21,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @Tag(name = "员工管理")
@@ -25,6 +30,8 @@ import java.util.Map;
 public class EmployeeController extends BaseController {
     @Autowired
     private EmployeeService employeeService;
+    @Autowired
+    private DepartmentService departmentService;
 
     @PostMapping("/save")
     @Operation(summary = "新增/编辑")
@@ -34,6 +41,11 @@ public class EmployeeController extends BaseController {
         UserInfo userInfo = UserInfoUtil.getUserInfo();
         employee.setTenantId(userInfo.getTenantId());
         employee.setCusId(userInfo.getCusId());
+        //获取公司ID
+        List<Department> departments = departmentService.list(new LambdaQueryWrapper<Department>().eq(Department::getCusId,userInfo.getCusId()).eq(Department::getSuperId,-1));
+        if(CollectionUtils.isNotEmpty(departments)){
+            employee.setCompany(departments.get(0).getId());
+        }
         if(employee.getId()!=null){
             employeeService.updateById(employee);
         }else{

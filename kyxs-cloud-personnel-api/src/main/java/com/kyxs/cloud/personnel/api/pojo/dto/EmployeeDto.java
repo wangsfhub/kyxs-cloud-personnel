@@ -2,21 +2,26 @@ package com.kyxs.cloud.personnel.api.pojo.dto;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Data
 @Schema(title = "员工信息")
 public class EmployeeDto {
     @Schema(title = "主键")
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long id;
 
     @Schema(title = "租户ID")
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long tenantId;
 
     @Schema(title = "客户ID")
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long cusId;
 
     @Schema(title = "员工编号")
@@ -34,19 +39,21 @@ public class EmployeeDto {
     @Schema(title = "证件号码")
     private String idCard;
 
-    @NotBlank(message = "所属公司不能为空！")
     @Schema(title = "所属公司")
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long company;
 
-    @NotBlank(message = "所属部门不能为空！")
+    @NotNull(message = "所属部门不能为空！")
     @Schema(title = "所属部门")
-    private Long deptId;
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
+    private Long department;
 
     @Schema(title = "岗位")
-    private Long postId;
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
+    private Long position;
 
     @Schema(title = "手机号")
-    private int phone;
+    private String phone;
 
     @Schema(title = "邮箱")
     private String email;

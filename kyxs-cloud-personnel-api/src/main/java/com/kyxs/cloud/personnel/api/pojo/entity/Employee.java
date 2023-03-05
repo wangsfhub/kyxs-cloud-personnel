@@ -46,6 +46,7 @@ public class Employee {
 
     @Schema(title = "所属公司")
     @TableField(value = "company")
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long company;
 
     @Schema(title = "所属公司名称")
@@ -75,7 +76,7 @@ public class Employee {
 
     @Schema(title = "手机号")
     @TableField(value = "phone")
-    private Integer phone;
+    private String phone;
 
     @Schema(title = "邮箱")
     @TableField(value = "email")
