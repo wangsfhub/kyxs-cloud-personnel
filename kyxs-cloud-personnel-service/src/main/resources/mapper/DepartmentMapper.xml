@@ -32,4 +32,9 @@
     <select id="selectChildrenTree" parameterType="String" resultMap="BaseResultTreeMap">
         select * from department d where d.super_id=#{id} order by dept_sort asc
     </select>
+    <!--保存变更信息-->
+    <insert id="saveChangeInfo" parameterType="com.kyxs.cloud.personnel.api.pojo.entity.DepartmentChange">
+        insert into department_change(id,cus_id,tenant_id,dept_id,super_id,new_super_id,change_date,change_desc)
+        values (#{id},#{cusId},#{tenantId},#{deptId},#{superId},#{newSuperId},#{changeDate},#{changeDesc})
+    </insert>
 </mapper>

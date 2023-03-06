@@ -4,10 +4,13 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 import com.kyxs.cloud.core.base.annotation.RepeatSubmit;
 import com.kyxs.cloud.core.base.controller.BaseController;
 import com.kyxs.cloud.core.base.entity.UserInfo;
+import com.kyxs.cloud.core.base.exception.BusinessException;
 import com.kyxs.cloud.core.base.result.R;
 import com.kyxs.cloud.core.base.utils.UserInfoUtil;
+import com.kyxs.cloud.personnel.api.pojo.dto.DepartmentChangeDto;
 import com.kyxs.cloud.personnel.api.pojo.dto.DepartmentDto;
 import com.kyxs.cloud.personnel.api.pojo.entity.Department;
+import com.kyxs.cloud.personnel.api.pojo.entity.DepartmentChange;
 import com.kyxs.cloud.personnel.service.DepartmentService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -53,6 +56,27 @@ public class DepartmentController extends BaseController {
         return R.ok();
     }
 
+    @PostMapping("/change")
+    @Operation(summary = "部门变更")
+    @RepeatSubmit
+    public R saveChangeInfo(@Validated @RequestBody DepartmentChangeDto departmentChangeDto){
+        DepartmentChange departmentChange = modelMapper.map(departmentChangeDto,DepartmentChange.class);
+        UserInfo userInfo = UserInfoUtil.getUserInfo();
+        departmentChange.setTenantId(userInfo.getTenantId());
+        departmentChange.setCusId(userInfo.getCusId());
+        departmentChange.setId(IdWorker.getId());
+        if(departmentChange.getSuperId()==departmentChange.getNewSuperId()){
+            throw new BusinessException("新上级部门不能与原上级部门一样");
+        }
+        departmentService.saveChangeInfo(departmentChange);
+        return R.ok();
+    }
+    @GetMapping("/detail/{id}")
+    @Operation(summary = "列表查询")
+    public R detail(@PathVariable(value = "id") String id){
+        UserInfo userInfo = UserInfoUtil.getUserInfo();
+        return R.ok(departmentService.getById(id));
+    }
     @PostMapping("/list")
     @Operation(summary = "列表查询")
     public R getOrgList(@RequestBody Department department){

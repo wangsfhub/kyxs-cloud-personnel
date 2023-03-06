@@ -13,6 +13,7 @@ import com.kyxs.cloud.core.base.utils.UserInfoUtil;
 import com.kyxs.cloud.personnel.api.pojo.dto.EmployeeDto;
 import com.kyxs.cloud.personnel.api.pojo.entity.Department;
 import com.kyxs.cloud.personnel.api.pojo.entity.Employee;
+import com.kyxs.cloud.personnel.api.pojo.entity.InfoItem;
 import com.kyxs.cloud.personnel.service.DepartmentService;
 import com.kyxs.cloud.personnel.service.EmployeeService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -21,6 +22,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -54,7 +56,25 @@ public class EmployeeController extends BaseController {
         }
         return R.ok();
     }
-
+    @GetMapping("/header")
+    @Operation(summary = "表头查询")
+    public R header(){
+        List<InfoItem> headers = new ArrayList<>();
+        InfoItem infoItem = new InfoItem();
+        infoItem.setItemCode("postName");
+        infoItem.setItemName("岗位名称");
+        infoItem.setIsFilter("1");
+        infoItem.setItemType(1);
+        headers.add(infoItem);
+        infoItem = new InfoItem();
+        infoItem.setItemCode("postType");
+        infoItem.setItemName("岗位类型");
+        infoItem.setIsFilter("0");
+        infoItem.setItemType(9);
+        infoItem.setCodeSetId("6");
+        headers.add(infoItem);
+        return R.ok(headers);
+    }
     @PostMapping("/list")
     @Operation(summary = "列表查询")
     public R list(@RequestBody PageQueryDTO pageQueryDTO){
@@ -65,4 +85,5 @@ public class EmployeeController extends BaseController {
     public Map<Long,String> getEmployees(@PathVariable(value = "cusId") Long cusId){
         return employeeService.getEmployees(cusId);
     }
+
 }
