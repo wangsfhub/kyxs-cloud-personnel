@@ -35,6 +35,23 @@ spring:
           max-attempts: 5  #最大重试次数
           enabled: true
           initial-interval: 5000
+#rocketmq配置信息
+rocketmq:
+  #nameservice服务器地址（多个以英文逗号隔开）
+  name-server: 10.82.26.113:9876
+  #生产者配置
+  producer:
+    #组名
+    group: hrcloud-group
+    #目的地（topic:tag）
+    #topic
+    topic: hrcloud-topic
+    #sync tag(同步消息tag)
+    sync-tag: hrcloud-sync-tags
+    #async tag(异步消息tag)
+    async-tag: hrcloud-async-tags
+    #oneway tag(单向消息tag)
+    oneway-tag: hrcloud-oneway-tags
 #日志格式
 logging:
   pattern:

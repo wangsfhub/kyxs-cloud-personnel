@@ -1,12 +1,15 @@
 package com.kyxs.cloud.personnel.controller;
 
+import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 import com.kyxs.cloud.core.base.result.R;
 import com.kyxs.cloud.core.base.utils.SpringApplicationContextUtil;
-import com.kyxs.cloud.personnel.enums.MsgProcessorEnum;
+import com.kyxs.cloud.personnel.api.enums.MsgProcessorEnum;
+import com.kyxs.cloud.personnel.config.JmsConfig;
 import com.kyxs.cloud.personnel.executor.ServerExecutor;
 import com.kyxs.cloud.personnel.service.MsgService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.apache.rocketmq.spring.core.RocketMQTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,6 +32,9 @@ public class MsgController {
     @Qualifier("WechatMsgService")
     @Autowired
     private MsgService wechatMsgService;
+
+    @Autowired
+    private RocketMQTemplate rocketMQTemplate;//注入Mq
 
     /**
      * Spring会自动将Strategy接口的实现类注入到这个Map中，key为bean id，value值则为对应的策略实现类
@@ -110,5 +116,22 @@ public class MsgController {
         Map account = ServerExecutor.executeAndReturn(()-> smsMsgService.getAccount());
         return R.ok(account);
     }
+    /**
+     * rocketMQ测试
+     */
+    @GetMapping(value = "/rocket/product/create")
+    public R createProduct() {
+        //添加信息
+        String msg = "测试消息服务是否能正常接收";
+        String[] tags = {JmsConfig.TAG_CALC, JmsConfig.TAG_DECLARE};
+        for (int i = 0; i < tags.length; i++) {
+            String dest = String.format("%s:%s",JmsConfig.TOPIC,tags[i]);
+            rocketMQTemplate.convertAndSend(dest, msg);
+        }
 
+        //关闭客户
+        String dest = String.format("%s:%s",JmsConfig.TOPIC,"closeCustomer");
+        rocketMQTemplate.convertAndSend(dest, "1");
+        return R.ok();
+    }
 }

@@ -1,29 +1,21 @@
 package com.kyxs.cloud.personnel.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.toolkit.IdWorker;
-import com.kyxs.cloud.core.base.annotation.RepeatSubmit;
+import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.kyxs.cloud.core.base.controller.BaseController;
 import com.kyxs.cloud.core.base.entity.UserInfo;
 import com.kyxs.cloud.core.base.exception.BusinessException;
-import com.kyxs.cloud.core.base.mybatisplus.PageQuery;
-import com.kyxs.cloud.core.base.mybatisplus.PageQueryDTO;
 import com.kyxs.cloud.core.base.result.R;
 import com.kyxs.cloud.core.base.utils.UserInfoUtil;
-import com.kyxs.cloud.personnel.api.constant.BaseConstant;
 import com.kyxs.cloud.personnel.api.pojo.dto.CustomHeaderDto;
-import com.kyxs.cloud.personnel.api.pojo.dto.EmployeeDto;
 import com.kyxs.cloud.personnel.api.pojo.dto.HeaderItemDto;
 import com.kyxs.cloud.personnel.api.pojo.entity.CustomHeader;
-import com.kyxs.cloud.personnel.api.pojo.entity.Department;
-import com.kyxs.cloud.personnel.api.pojo.entity.Employee;
 import com.kyxs.cloud.personnel.api.pojo.entity.InfoItem;
-import com.kyxs.cloud.personnel.enums.CustomHeaderEnum;
+import com.kyxs.cloud.personnel.api.enums.CustomHeaderEnum;
 import com.kyxs.cloud.personnel.service.*;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.apache.commons.collections.CollectionUtils;
-import org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -56,7 +48,7 @@ public class CustomHeaderController extends BaseController {
     public R getCustomData(@PathVariable(value = "moduleCode") String moduleCode){
         CustomHeaderEnum customHeaderEnum = CustomHeaderEnum.get(moduleCode);
         if(customHeaderEnum==null){
-            return R.failed("参数有误，请确认");
+            throw new BusinessException("参数有误，请确认");
         }
         UserInfo userInfo = UserInfoUtil.getUserInfo();
         Map<String,List<HeaderItemDto>> map = new HashMap<>();
@@ -73,7 +65,7 @@ public class CustomHeaderController extends BaseController {
         });
         //已选
 
-        List<CustomHeader> customHeaders = customHeaderService.list(new LambdaQueryWrapper<CustomHeader>().eq(CustomHeader::getCusId,userInfo.getCusId()).eq(CustomHeader::getUserId,userInfo.getUserId()).eq(CustomHeader::getModuleCode, CustomHeaderEnum.EMP_INFO.getModuleCode()));
+        List<CustomHeader> customHeaders = customHeaderService.list((new LambdaQueryWrapper<CustomHeader>().eq(CustomHeader::getCusId,userInfo.getCusId()).eq(CustomHeader::getUserId,userInfo.getUserId()).eq(CustomHeader::getModuleCode, CustomHeaderEnum.EMP_INFO.getModuleCode())));
         map.put("allList",allList);
         if(CollectionUtils.isNotEmpty(customHeaders)){
             List<HeaderItemDto> checkedList = new ArrayList();
@@ -109,7 +101,7 @@ public class CustomHeaderController extends BaseController {
         UserInfo userInfo = UserInfoUtil.getUserInfo();
         CustomHeaderEnum customHeaderEnum = CustomHeaderEnum.get(moduleCode);
         if(customHeaderEnum==null){
-            return R.failed("参数有误，请确认");
+            throw new BusinessException("参数有误，请确认");
         }
         //查询所有
         List<InfoItem> infoItems = customHeaderCommonServiceMap.get(customHeaderEnum.getProcessor()).getAllHeaderList();
@@ -117,11 +109,16 @@ public class CustomHeaderController extends BaseController {
         List<InfoItem> checkedList = new ArrayList();
         List<CustomHeader> customHeaders = customHeaderService.list(new LambdaQueryWrapper<CustomHeader>().eq(CustomHeader::getCusId,userInfo.getCusId()).eq(CustomHeader::getUserId,userInfo.getUserId()).eq(CustomHeader::getModuleCode, CustomHeaderEnum.EMP_INFO.getModuleCode()));
         if(CollectionUtils.isEmpty(customHeaders)) {
+            //转驼峰返回
+            infoItems.forEach(infoItem -> {
+                infoItem.setItemCode(StringUtils.underlineToCamel(infoItem.getItemCode()));
+            });
             return R.ok(infoItems);
         }
         String[] checkedHeaders =  customHeaders.get(0).getHeaders().split(",");
         infoItems.forEach(infoItem -> {
             if (Arrays.asList(checkedHeaders).contains(infoItem.getItemCode())){
+                infoItem.setItemCode(StringUtils.underlineToCamel(infoItem.getItemCode()));
                 checkedList.add(infoItem);
             }
         });

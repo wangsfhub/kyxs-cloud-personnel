@@ -12,9 +12,9 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-@Schema(title = "员工信息")
-@TableName("employee")
-public class Employee {
+@Schema(title = "入职信息")
+@TableName("entry_info")
+public class EntryInfo {
     @Schema(title = "主键")
     @TableId(value = "id")
     @JsonFormat(shape = JsonFormat.Shape.STRING)
@@ -74,31 +74,7 @@ public class Employee {
     @Schema(title = "岗位名称")
     @Translate(code = "position", type = TranslateConstant.EMP_POST)
     @TableField(exist = false)
-    private String positionName;
-
-    @Schema(title = "手机号")
-    @TableField(value = "phone")
-    private String phone;
-
-    @Schema(title = "邮箱")
-    @TableField(value = "email")
-    private String email;
-
-    @Schema(title = "性别")
-    @TableField(value = "gender")
-    private String gender;
-
-    @Schema(title = "年龄")
-    @TableField(value = "age")
-    private String age;
-
-    @Schema(title = "国籍")
-    @TableField(value = "nationality")
-    private String nationality;
-
-    @Schema(title = "出生日期")
-    @TableField(value = "birthday")
-    private String birthday;
+    private String postName;
 
     @Schema(title = "入职时间")
     @TableField(value = "entry_time")
@@ -107,6 +83,14 @@ public class Employee {
     @Schema(title = "人员状态")
     @TableField(value = "emp_status")
     private String empStatus;
+
+    @Schema(title = "入职状态")
+    @TableField(value = "entry_status")
+    private String entryStatus;
+
+    @Schema(title = "入职信息完善状态")
+    @TableField(value = "full_status")
+    private Integer fullStatus;
 
     @Schema(title = "创建者")
     @TableField(value = "creator")
@@ -124,8 +108,5 @@ public class Employee {
     @TableField(value = "update_time")
     private String updateTime;
 
-    @Schema(title = "信息子集")
-    @TableField(exist = false)
-    private List<InfoSet> infoSetIds;
 
 }

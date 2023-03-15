@@ -1,0 +1,6 @@
+2023-03-09 13:06:15.565 127.0.0.1 [main] WARN  c.a.cloud.nacos.client.NacosPropertySourceBuilder:87 - Ignore the empty nacos configuration and get it based on dataId[kyxs-cloud-personnel] & group[DEFAULT_GROUP]
+2023-03-09 13:06:15.583 127.0.0.1 [main] WARN  c.a.cloud.nacos.client.NacosPropertySourceBuilder:87 - Ignore the empty nacos configuration and get it based on dataId[kyxs-cloud-personnel.yml] & group[DEFAULT_GROUP]
+2023-03-09 13:06:15.589 127.0.0.1 [main] WARN  c.a.cloud.nacos.client.NacosPropertySourceBuilder:87 - Ignore the empty nacos configuration and get it based on dataId[kyxs-cloud-personnel-dev.yml] & group[DEFAULT_GROUP]
+2023-03-09 20:05:35.508 127.0.0.1 [main] WARN  c.a.cloud.nacos.client.NacosPropertySourceBuilder:87 - Ignore the empty nacos configuration and get it based on dataId[kyxs-cloud-personnel] & group[DEFAULT_GROUP]
+2023-03-09 20:05:35.516 127.0.0.1 [main] WARN  c.a.cloud.nacos.client.NacosPropertySourceBuilder:87 - Ignore the empty nacos configuration and get it based on dataId[kyxs-cloud-personnel.yml] & group[DEFAULT_GROUP]
+2023-03-09 20:05:35.521 127.0.0.1 [main] WARN  c.a.cloud.nacos.client.NacosPropertySourceBuilder:87 - Ignore the empty nacos configuration and get it based on dataId[kyxs-cloud-personnel-dev.yml] & group[DEFAULT_GROUP]

@@ -11,8 +11,8 @@ import java.util.List;
 
 @Data
 @Schema(title = "子标项信息")
-@TableName("info_set")
-public class InfoSet {
+@TableName("entry_info_set")
+public class EntryInfoSet {
     @Schema(title = "主键")
     @TableId(value = "id")
     @JsonFormat(shape = JsonFormat.Shape.STRING)
@@ -28,32 +28,20 @@ public class InfoSet {
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long cusId;
 
+    @Schema(title = "子标项ID")
+    @TableField(value = "set_id")
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
+    private Long setId;
+
     @Schema(title = "子标项名称")
     @TableField(value = "set_name")
     private String setName;
-
-    @Schema(title = "存储表")
-    @TableField(value = "source_table")
-    private String sourceTable;
-
-    @Schema(title = "子标类型")
-    @TableField(value = "set_type")
-    private String setType;
-
-    @Schema(title = "子标状态")
-    @TableField(value = "set_status")
-    private String setStatus;
 
     @Schema(title = "子标排序")
     @TableField(value = "set_sort")
     private Integer setSort;
 
-    @Schema(title = "子标描述")
-    @TableField(value = "set_desc")
-    private String setDesc;
-
-    @Schema(title = "子节点")
+    @Schema(title = "子集")
     @TableField(exist = false)
-    private List<InfoItem> children;
-
+    private List<EntryInfoItem> children;
 }

@@ -7,6 +7,7 @@ import com.kyxs.cloud.personnel.api.pojo.entity.InfoSet;
 
 import java.util.List;
 
-public interface InfoItemMapper extends BaseMapper<InfoItem> {
-
+public interface InfoSetMapper extends BaseMapper<InfoSet> {
+    @InterceptorIgnore(tenantLine = "1")
+    List<InfoSet> getInfoSets();
 }

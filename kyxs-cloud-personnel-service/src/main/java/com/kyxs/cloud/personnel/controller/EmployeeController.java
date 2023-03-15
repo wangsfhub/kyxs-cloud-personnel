@@ -11,9 +11,7 @@ import com.kyxs.cloud.core.base.mybatisplus.PageQueryDTO;
 import com.kyxs.cloud.core.base.result.R;
 import com.kyxs.cloud.core.base.utils.UserInfoUtil;
 import com.kyxs.cloud.personnel.api.pojo.dto.EmployeeDto;
-import com.kyxs.cloud.personnel.api.pojo.entity.Department;
-import com.kyxs.cloud.personnel.api.pojo.entity.Employee;
-import com.kyxs.cloud.personnel.api.pojo.entity.InfoItem;
+import com.kyxs.cloud.personnel.api.pojo.entity.*;
 import com.kyxs.cloud.personnel.service.DepartmentService;
 import com.kyxs.cloud.personnel.service.EmployeeService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -56,6 +54,13 @@ public class EmployeeController extends BaseController {
         }
         return R.ok();
     }
+    @PostMapping("/dynamic/save")
+    @Operation(summary = "动态新增/编辑")
+    @RepeatSubmit
+    public R save(@RequestBody Map param){
+        employeeService.saveDynamicInfo(param);
+        return R.ok();
+    }
     @GetMapping("/header")
     @Operation(summary = "表头查询")
     public R header(){
@@ -80,10 +85,27 @@ public class EmployeeController extends BaseController {
     public R list(@RequestBody PageQueryDTO pageQueryDTO){
         return R.ok(employeeService.queryListByPage(new PageQuery(pageQueryDTO)));
     }
+    @GetMapping("/detail/{id}")
+    @Operation(summary = "查询员工详情")
+    public R<Employee> getDetail(@PathVariable(value = "id") Long id){
+        return R.ok(employeeService.getDetailById(id));
+    }
+    @GetMapping("/info/{setId}/{empId}")
+    @Operation(summary = "查询员工详情")
+    public R getEmpInfo(@PathVariable(value = "setId") Long setId,@PathVariable(value = "empId") Long empId){
+        return R.ok(employeeService.getEmpInfoBySetId(setId,empId));
+    }
+
     @GetMapping("/all/{cusId}")
     @Operation(summary = "查询所有员工翻译使用")
     public Map<Long,String> getEmployees(@PathVariable(value = "cusId") Long cusId){
         return employeeService.getEmployees(cusId);
     }
 
+    @DeleteMapping("/delete/{setId}/{id}")
+    @Operation(summary = "删除")
+    public R delete( @PathVariable(value = "setId") Long setId,@PathVariable(value = "id") Long id){
+        employeeService.deleteBySetId(setId,id);
+        return R.ok();
+    }
 }

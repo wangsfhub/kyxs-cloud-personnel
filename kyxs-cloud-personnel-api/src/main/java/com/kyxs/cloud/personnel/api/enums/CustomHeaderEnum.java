@@ -7,10 +7,12 @@ import lombok.AllArgsConstructor;
  */
 @AllArgsConstructor
 public enum CustomHeaderEnum {
-    EMP_INFO("empInfo", "员工花名册");
+    EMP_INFO("empInfo", "员工花名册","EmpInfoService");
 
     private String moduleCode;
     private String desc;
+    //服务服务名
+    private String processor;
 
     public static CustomHeaderEnum get(String moduleCode) {
         if (moduleCode == null) {
@@ -29,8 +31,11 @@ public enum CustomHeaderEnum {
         return moduleCode;
     }
 
+    public String getProcessor() {
+        return processor;
+    }
+
     public String getDesc() {
         return desc;
     }
-
 }

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kyxs.cloud.personnel.mapper.EmployeeMapper">
+
+    <select id="queryEmpInfoBySetId" parameterType="string" resultType="map">
+        select * from ${sourceTable} where cus_id=#{cusId}
+        <if test="sourceTable=='employee'">
+            and id=#{empId}
+        </if>
+        <if test="sourceTable!='employee'">
+            and emp_id=#{empId}
+        </if>
+    </select>
+    <update id="dynamicUpdate">
+        update ${sourceTable}
+        <set >
+            <foreach collection="fields" item="field" separator=",">
+                <if test="field.itemValue != null">
+                    ${field.itemCode} = #{field.itemValue}
+                </if>
+            </foreach>
+        </set>
+        where cus_id=#{userInfo.cusId} and id = #{id}
+    </update>
+    <insert id="dynamicInsert">
+        insert into ${sourceTable}(
+            <foreach collection="fields" item="field" separator=",">
+                ${field.itemCode}
+            </foreach>
+        ) values
+        (
+            <foreach collection="fields" item="field" separator=",">
+                #{field.itemValue}
+            </foreach>
+        )
+    </insert>
+    <delete id="deleteBySetId">
+        delete from ${sourceTable} where cus_id=#{cusId} and id=#{id}
+    </delete>
+</mapper>

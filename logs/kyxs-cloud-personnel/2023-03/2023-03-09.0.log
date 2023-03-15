@@ -1,0 +1,33 @@
+2023-03-09 13:06:17.292 127.0.0.1 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner:44 - Skipping MapperFactoryBean with name 'codeItemMapper' and 'com.kyxs.cloud.personnel.mapper.CodeItemMapper' mapperInterface. Bean already defined with the same name!
+2023-03-09 13:06:17.294 127.0.0.1 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner:44 - Skipping MapperFactoryBean with name 'customHeaderMapper' and 'com.kyxs.cloud.personnel.mapper.CustomHeaderMapper' mapperInterface. Bean already defined with the same name!
+2023-03-09 13:06:17.294 127.0.0.1 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner:44 - Skipping MapperFactoryBean with name 'departmentMapper' and 'com.kyxs.cloud.personnel.mapper.DepartmentMapper' mapperInterface. Bean already defined with the same name!
+2023-03-09 13:06:17.294 127.0.0.1 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner:44 - Skipping MapperFactoryBean with name 'employeeMapper' and 'com.kyxs.cloud.personnel.mapper.EmployeeMapper' mapperInterface. Bean already defined with the same name!
+2023-03-09 13:06:17.294 127.0.0.1 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner:44 - Skipping MapperFactoryBean with name 'infoItemMapper' and 'com.kyxs.cloud.personnel.mapper.InfoItemMapper' mapperInterface. Bean already defined with the same name!
+2023-03-09 13:06:17.295 127.0.0.1 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner:44 - Skipping MapperFactoryBean with name 'positionMapper' and 'com.kyxs.cloud.personnel.mapper.PositionMapper' mapperInterface. Bean already defined with the same name!
+2023-03-09 13:06:17.295 127.0.0.1 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner:44 - No MyBatis mapper was found in '[com.kyxs.**.mapper]' package. Please check your configuration.
+2023-03-09 13:06:18.478 127.0.0.1 [main] WARN  com.netflix.config.sources.URLConfigurationSource:126 - No URLs will be polled as dynamic configuration sources.
+2023-03-09 13:06:19.867 127.0.0.1 [main] WARN  com.netflix.config.sources.URLConfigurationSource:126 - No URLs will be polled as dynamic configuration sources.
+2023-03-09 13:37:09.837 127.0.0.1 [AMQP Connection 10.82.26.172:32394] ERROR com.rabbitmq.client.impl.ForgivingExceptionHandler:119 - An unexpected connection driver error occurred
+com.rabbitmq.client.MissedHeartbeatException: Heartbeat missing with heartbeat = 60 seconds
+	at com.rabbitmq.client.impl.AMQConnection.handleSocketTimeout(AMQConnection.java:847)
+	at com.rabbitmq.client.impl.AMQConnection.readFrame(AMQConnection.java:747)
+	at com.rabbitmq.client.impl.AMQConnection.access$300(AMQConnection.java:47)
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:666)
+	at java.lang.Thread.run(Thread.java:750)
+2023-03-09 13:49:15.318 127.0.0.1 [Thread-11] WARN  com.alibaba.nacos.common.notify.NotifyCenter:136 - [NotifyCenter] Start destroying Publisher
+2023-03-09 13:49:15.318 127.0.0.1 [Thread-5] WARN  com.alibaba.nacos.common.http.HttpClientBeanHolder:108 - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-03-09 13:49:15.327 127.0.0.1 [Thread-11] WARN  com.alibaba.nacos.common.notify.NotifyCenter:153 - [NotifyCenter] Destruction of the end
+2023-03-09 13:49:15.333 127.0.0.1 [Thread-5] WARN  com.alibaba.nacos.common.http.HttpClientBeanHolder:114 - [HttpClientBeanHolder] Destruction of the end
+2023-03-09 20:05:37.346 127.0.0.1 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner:44 - Skipping MapperFactoryBean with name 'codeItemMapper' and 'com.kyxs.cloud.personnel.mapper.CodeItemMapper' mapperInterface. Bean already defined with the same name!
+2023-03-09 20:05:37.348 127.0.0.1 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner:44 - Skipping MapperFactoryBean with name 'customHeaderMapper' and 'com.kyxs.cloud.personnel.mapper.CustomHeaderMapper' mapperInterface. Bean already defined with the same name!
+2023-03-09 20:05:37.348 127.0.0.1 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner:44 - Skipping MapperFactoryBean with name 'departmentMapper' and 'com.kyxs.cloud.personnel.mapper.DepartmentMapper' mapperInterface. Bean already defined with the same name!
+2023-03-09 20:05:37.348 127.0.0.1 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner:44 - Skipping MapperFactoryBean with name 'employeeMapper' and 'com.kyxs.cloud.personnel.mapper.EmployeeMapper' mapperInterface. Bean already defined with the same name!
+2023-03-09 20:05:37.348 127.0.0.1 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner:44 - Skipping MapperFactoryBean with name 'infoItemMapper' and 'com.kyxs.cloud.personnel.mapper.InfoItemMapper' mapperInterface. Bean already defined with the same name!
+2023-03-09 20:05:37.349 127.0.0.1 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner:44 - Skipping MapperFactoryBean with name 'positionMapper' and 'com.kyxs.cloud.personnel.mapper.PositionMapper' mapperInterface. Bean already defined with the same name!
+2023-03-09 20:05:37.349 127.0.0.1 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner:44 - No MyBatis mapper was found in '[com.kyxs.**.mapper]' package. Please check your configuration.
+2023-03-09 20:05:38.605 127.0.0.1 [main] WARN  com.netflix.config.sources.URLConfigurationSource:126 - No URLs will be polled as dynamic configuration sources.
+2023-03-09 20:05:39.988 127.0.0.1 [main] WARN  com.netflix.config.sources.URLConfigurationSource:126 - No URLs will be polled as dynamic configuration sources.
+2023-03-09 21:11:33.530 127.0.0.1 [Thread-4] WARN  com.alibaba.nacos.common.http.HttpClientBeanHolder:108 - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-03-09 21:11:33.530 127.0.0.1 [Thread-11] WARN  com.alibaba.nacos.common.notify.NotifyCenter:136 - [NotifyCenter] Start destroying Publisher
+2023-03-09 21:11:33.543 127.0.0.1 [Thread-4] WARN  com.alibaba.nacos.common.http.HttpClientBeanHolder:114 - [HttpClientBeanHolder] Destruction of the end
+2023-03-09 21:11:33.536 127.0.0.1 [Thread-11] WARN  com.alibaba.nacos.common.notify.NotifyCenter:153 - [NotifyCenter] Destruction of the end

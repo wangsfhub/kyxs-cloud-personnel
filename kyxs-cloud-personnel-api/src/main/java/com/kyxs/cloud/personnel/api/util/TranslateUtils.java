@@ -235,9 +235,15 @@ public class TranslateUtils {
 
                 switch (type) {
                     case TranslateConstant.EMP_DEPT:
-                        // 用户单位
+                        // 部门
                         if (info.getUserUnits().containsKey(Long.parseLong(key))) {
                             value = info.getUserUnits().get(Long.parseLong(key));
+                        }
+                        break;
+                    case TranslateConstant.EMP_POST:
+                        // 岗位
+                        if (info.getUserPositions().containsKey(Long.parseLong(key))) {
+                            value = info.getUserPositions().get(Long.parseLong(key));
                         }
                         break;
                     case TranslateConstant.ENUM_CLAZ:
