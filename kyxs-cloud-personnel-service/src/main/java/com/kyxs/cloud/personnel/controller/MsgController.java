@@ -123,15 +123,16 @@ public class MsgController {
     public R createProduct() {
         //添加信息
         String msg = "测试消息服务是否能正常接收";
-        String[] tags = {JmsConfig.TAG_CALC, JmsConfig.TAG_DECLARE};
-        for (int i = 0; i < tags.length; i++) {
-            String dest = String.format("%s:%s",JmsConfig.TOPIC,tags[i]);
-            rocketMQTemplate.convertAndSend(dest, msg);
-        }
-
+//        String[] tags = {JmsConfig.TAG_CALC, JmsConfig.TAG_DECLARE};
+//        for (int i = 0; i < tags.length; i++) {
+//            String dest = String.format("%s:%s",JmsConfig.TOPIC,tags[i]);
+//            rocketMQTemplate.convertAndSend(dest, msg);
+//        }
+        String dest = String.format("%s:%s",JmsConfig.TOPIC,"openCustomer");
+        rocketMQTemplate.convertAndSend(dest, "[\"1\"]");
         //关闭客户
-        String dest = String.format("%s:%s",JmsConfig.TOPIC,"closeCustomer");
-        rocketMQTemplate.convertAndSend(dest, "1");
+        dest = String.format("%s:%s",JmsConfig.TOPIC,"createCustomer");
+        rocketMQTemplate.convertAndSend(dest, "{\"passPermissions\":[{\"id\":1635951500779859970,\"permissionValue\":\"111111111111\",\"relationPassId\":1635951498980503554,\"types\":\"111111111111\"}],\"upmsCustomer\":{\"address\":\"朝阳\",\"agencyId\":1381788384176693249,\"allocationStatus\":40001,\"allocationTime\":1678876203580,\"area\":\"1\",\"createBy\":\"1\",\"createTime\":\"2023-03-15T18:29:59.927\",\"creditCode\":\"111111151111111111\",\"customIdType\":95020002,\"customNumber\":\"266603T\",\"customType\":95040011,\"customerPrincipalId\":\"1385053845579603969\",\"id\":1635951471340040194,\"licenses\":\"1635950547017080834\",\"name\":\"rocketmq测试客户\",\"orgId\":\"1635951471340040194\",\"scale\":213,\"source\":20030,\"tenantId\":\"1\",\"type\":174,\"updateTime\":\"2023-03-15T18:30:05.200\"},\"upmsOrg\":{\"address\":\"朝阳\",\"area\":\"1\",\"authMode\":30001,\"authTime\":1678876203580,\"createBy\":\"1\",\"createTime\":\"2023-03-15T18:29:59.927\",\"creditCode\":\"111111151111111111\",\"customIdType\":95020002,\"firstOpenTime\":1678876203580,\"id\":\"1635951471340040194\",\"licenses\":\"1635950547017080834\",\"name\":\"rocketmq测试客户\",\"scale\":213,\"status\":20043,\"type\":174,\"updateBy\":\"1385053845579603969\",\"updateTime\":\"2023-03-15T18:30:03.663\"}}");
         return R.ok();
     }
 }

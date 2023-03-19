@@ -1,5 +1,5 @@
 #人事数据库
-CREATE DATABASE IF NOT EXISTS kyxs-personnel DEFAULT CHARACTER SET utf8mb4 DEFAULT COLLATE utf8mb4_general_ci;
+CREATE DATABASE IF NOT EXISTS kyxs_personnel DEFAULT CHARACTER SET utf8mb4 DEFAULT COLLATE utf8mb4_general_ci;
 
 # 系统代码项表
 create table `code_set` (

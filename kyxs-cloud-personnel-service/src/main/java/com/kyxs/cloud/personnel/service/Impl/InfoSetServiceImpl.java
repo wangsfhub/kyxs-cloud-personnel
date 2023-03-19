@@ -24,7 +24,8 @@ public class InfoSetServiceImpl extends ServiceImpl<InfoSetMapper, InfoSet> impl
         List<InfoSet> list =  baseMapper.getInfoSets();
         if(CollectionUtils.isNotEmpty(list)){
             list.forEach(infoSet -> {
-                infoSet.setChildren(infoItemService.list(new LambdaQueryWrapper<InfoItem>().eq(InfoItem::getCusId,'1').eq(InfoItem::getItemStatus,"1").orderByAsc(InfoItem::getItemSort)));
+                infoSet.setChildren(infoItemService.list(new LambdaQueryWrapper<InfoItem>().eq(InfoItem::getCusId,'1').eq(InfoItem::getSetId,infoSet.getId())
+                        .eq(InfoItem::getItemStatus,"1").orderByAsc(InfoItem::getItemSort)));
             });
         }
         return list;

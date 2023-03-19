@@ -13,16 +13,17 @@ spring:
         # 注册中心地址
         server-addr: 127.0.0.1:8848
         # 注册到注册中心
-        register-enabled: false
+        register-enabled: true
         metadata:
           # 网关策略路由配置
           group_name: default
+        ip: 127.0.0.1
       config:
         server-addr: ${spring.cloud.nacos.discovery.server-addr}
         file-extension: yml
         refresh-enabled: true
         shared-configs:
-        #- application-hrcloud.${spring.cloud.nacos.config.file-extension}
+          - application.${spring.cloud.nacos.config.file-extension}
         #- ${spring.application.name}-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
 # 多租户配置
 my:
@@ -31,4 +32,4 @@ my:
       enable: true       #是否开启多租户模式
       column: tenant_id     #多租户ID
       tables:            # 忽略的表  表名小写
-        - sys_parameter
+        - sys_config

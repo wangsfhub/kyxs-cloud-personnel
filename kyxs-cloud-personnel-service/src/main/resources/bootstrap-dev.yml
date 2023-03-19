@@ -5,7 +5,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: wangsf2023
-    url: jdbc:mysql://127.0.0.1:3306/kyxs-personnel?characterEncoding=utf8
+    url: jdbc:mysql://127.0.0.1:3306/kyxs_personnel?characterEncoding=utf8
   redis:
     host: 127.0.0.1
     port: 6379
@@ -21,31 +21,17 @@ spring:
         max-idle: 30
         # 连接池中的最小空闲连接
         min-idle: 10
-  # Rabbitmq配置
-  rabbitmq:
-    host: 10.82.26.172
-    port: 32394 #31710
-    username: admin
-    password: admin
-    listener:
-      simple:
-        acknowledge-mode: auto
-        default-requeue-rejected: true
-        retry:
-          max-attempts: 5  #最大重试次数
-          enabled: true
-          initial-interval: 5000
 #rocketmq配置信息
 rocketmq:
   #nameservice服务器地址（多个以英文逗号隔开）
   name-server: 10.82.26.113:9876
   #生产者配置
   producer:
+    #topic
+    topic: hrcloud-topic
     #组名
     group: hrcloud-group
     #目的地（topic:tag）
-    #topic
-    topic: hrcloud-topic
     #sync tag(同步消息tag)
     sync-tag: hrcloud-sync-tags
     #async tag(异步消息tag)
