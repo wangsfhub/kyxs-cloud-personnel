@@ -2,6 +2,7 @@ package com.kyxs.cloud.personnel.api.pojo.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
+import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -20,6 +21,7 @@ public class PositionDto {
     private Long cusId;
 
     @NotBlank(message = "岗位名称不能为空！")
+    @Length(min = 2, max = 15,message = "岗位名称长度在2～15个字符")
     @Schema(title = "岗位名称")
     private String postName;
 
@@ -43,5 +45,6 @@ public class PositionDto {
 
 
     @Schema(title = "岗位描述")
+    @Length(max = 100,message = "岗位描述长度100个字符以内")
     private String postDesc;
 }

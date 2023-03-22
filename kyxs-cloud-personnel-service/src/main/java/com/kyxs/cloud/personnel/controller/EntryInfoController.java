@@ -45,9 +45,6 @@ public class EntryInfoController extends BaseController {
     @PostMapping("/list")
     @Operation(summary = "列表查询")
     public R list(@RequestBody PageQueryDTO pageQueryDTO){
-        R<String> r = wechatFeignService.getQrcode("666666");
-        msgSendFeignService.send("test","看到了吗，伙计！");
-        msgSendFeignService.sendSms(new MsgSend().setType(1).setCode("99999"));
         return R.ok(entryInfoService.queryListByPage(new PageQuery(pageQueryDTO)));
     }
 

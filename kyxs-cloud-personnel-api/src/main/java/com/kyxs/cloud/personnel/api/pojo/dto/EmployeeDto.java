@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
+import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -25,9 +26,11 @@ public class EmployeeDto {
     private Long cusId;
 
     @Schema(title = "员工编号")
+    @Length(max = 20,message = "员工编号长度20个字符以内")
     private String empNo;
 
     @NotBlank(message = "员工姓名不能为空！")
+    @Length(min = 2, max = 5,message = "姓名长度在2～5个字符")
     @Schema(title = "员工姓名")
     private String empName;
 
@@ -36,6 +39,7 @@ public class EmployeeDto {
     private String idType;
 
     @NotBlank(message = "证件号码不能为空！")
+    @Length(max = 20,message = "证件号码长度20个字符以内")
     @Schema(title = "证件号码")
     private String idCard;
 

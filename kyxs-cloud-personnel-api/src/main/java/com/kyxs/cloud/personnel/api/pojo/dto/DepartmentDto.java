@@ -3,6 +3,7 @@ package com.kyxs.cloud.personnel.api.pojo.dto;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
+import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -23,9 +24,11 @@ public class DepartmentDto {
     private Long cusId;
 
     @Schema(title = "部门编码")
+    @Length(max = 20,message = "部门编码长度20个字符以内")
     private String deptNo;
 
     @NotBlank(message = "部门名称不能为空！")
+    @Length(min = 2, max = 15,message = "部门名称长度在2～15个字符")
     @Schema(title = "部门名称")
     private String deptName;
 
@@ -46,5 +49,6 @@ public class DepartmentDto {
     private Long leader;
 
     @Schema(title = "组织描述")
+    @Length(max = 100,message = "组织描述长度100个字符以内")
     private String deptDesc;
 }
