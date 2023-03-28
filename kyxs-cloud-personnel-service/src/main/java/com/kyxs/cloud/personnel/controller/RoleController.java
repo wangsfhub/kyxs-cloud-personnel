@@ -34,17 +34,18 @@ public class RoleController extends BaseController {
     @Operation(summary = "新增/编辑")
     @RepeatSubmit
     public R save(@Validated @RequestBody RoleDto roleDto){
-        Role role = modelMapper.map(roleDto, Role.class);
-        UserInfo userInfo = UserInfoUtil.getUserInfo();
-        role.setTenantId(userInfo.getTenantId());
-        role.setCusId(userInfo.getCusId());
-        if(role.getId()!=null){
-            roleService.updateById(role);
-        }else{
-            role.setRoleStatus("1");//启用
-            role.setId(IdWorker.getId());
-            roleService.save(role);
-        }
+//        Role role = modelMapper.map(roleDto, Role.class);
+//        UserInfo userInfo = UserInfoUtil.getUserInfo();
+//        role.setTenantId(userInfo.getTenantId());
+//        role.setCusId(userInfo.getCusId());
+//        if(role.getId()!=null){
+//            roleService.updateById(role);
+//        }else{
+//            role.setRoleStatus("1");//启用
+//            role.setId(IdWorker.getId());
+//            roleService.save(role);
+//        }
+        roleService.addOrUpdate(roleDto);
         return R.ok();
     }
     @PostMapping("/copy")

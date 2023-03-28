@@ -9,13 +9,10 @@ import com.kyxs.cloud.personnel.api.constant.TranslateConstant;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
-import java.math.BigDecimal;
-import java.util.List;
-
 @Data
-@Schema(title = "角色信息")
-@TableName("roles")
-public class Role {
+@Schema(title = "角色范围信息")
+@TableName("roles_scope")
+public class RoleScope {
     @Schema(title = "主键")
     @TableId(value = "id")
     @JsonFormat(shape = JsonFormat.Shape.STRING)
@@ -31,21 +28,33 @@ public class Role {
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long cusId;
 
-    @Schema(title = "角色名称")
-    @TableField(value = "role_name")
-    private String roleName;
+    @Schema(title = "角色ID")
+    @TableField(value = "role_id")
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
+    private Long roleId;
 
-    @Schema(title = "角色类别")
-    @TableField(value = "role_type")
-    private String roleType;
+    @Schema(title = "范围ID")
+    @TableField(value = "scope_id")
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
+    private Long scopeId;
 
-    @Schema(title = "角色状态")
-    @TableField(value = "role_status")
-    private String roleStatus;
+    @Schema(title = "范围名称，翻译")
+    @TableField(exist = false)
+    private String scopeName;
 
-    @Schema(title = "角色描述")
-    @TableField(value = "role_desc")
-    private String roleDesc;
+    @Schema(title = "员工姓名，翻译")
+    @TableField(exist = false)
+    @Translate(code = "scopeId", type = TranslateConstant.EMP_NAME)
+    private String empName;
+
+    @Schema(title = "部门名称，翻译")
+    @TableField(exist = false)
+    @Translate(code = "scopeId", type = TranslateConstant.EMP_DEPT)
+    private String deptName;
+
+    @Schema(title = "范围类型")
+    @TableField(value = "scope_type")
+    private String scopeType;
 
     @Schema(title = "创建者")
     @TableField(value = "creator")
@@ -62,13 +71,5 @@ public class Role {
     @Schema(title = "更新时间")
     @TableField(value = "update_time")
     private String updateTime;
-
-    @Schema(title = "角色范围")
-    @TableField(exist = false)
-    private List<RoleScope> roleScopes;
-
-    @Schema(title = "权限组")
-    @TableField(exist = false)
-    private List<RolePermissionR> rolePermissionRS;
 
 }

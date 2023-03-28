@@ -240,6 +240,12 @@ public class TranslateUtils {
                             value = info.getUserUnits().get(Long.parseLong(key));
                         }
                         break;
+                    case TranslateConstant.EMP_NAME:
+                        // 姓名
+                        if (info.getUserEmployees().containsKey(Long.parseLong(key))) {
+                            value = info.getUserEmployees().get(Long.parseLong(key));
+                        }
+                        break;
                     case TranslateConstant.EMP_POST:
                         // 岗位
                         if (info.getUserPositions().containsKey(Long.parseLong(key))) {

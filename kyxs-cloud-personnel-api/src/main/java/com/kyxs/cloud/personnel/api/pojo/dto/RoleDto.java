@@ -5,6 +5,7 @@ import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.NotBlank;
+import java.util.List;
 
 @Data
 @Schema(title = "角色信息")
@@ -33,4 +34,10 @@ public class RoleDto {
     @Schema(title = "角色描述")
     @Length(max = 100,message = "角色描述长度100个字符以内")
     private String roleDesc;
+
+    @Schema(title = "角色权限组")
+    private List<String> rolePermission;
+
+    @Schema(title = "角色范围")
+    private List<OrgScopeDto> roleScope;
 }

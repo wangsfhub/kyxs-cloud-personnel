@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kyxs.cloud.personnel.mapper.PermissionGroupMapper">
+
+    <delete id="deletePermissionOrgScopeByGroupId" parameterType="Long">
+        delete from permission_org_scope where cus_id=#{cusId} and group_id=#{groupId}
+    </delete>
+    <delete id="deletePermissionMenuByGroupId" parameterType="Long">
+        delete from permission_menu where cus_id=#{cusId} and group_id=#{groupId}
+    </delete>
+    <insert id="insertPermissionOrgScope">
+        insert permission_org_scope(id,cus_id,tenant_id,group_id,org_id)
+        values
+        <foreach collection="orgScopes" item="orgScope" separator=",">
+         (#{orgScope.id},#{orgScope.cusId},#{orgScope.tenantId},#{orgScope.groupId},#{orgScope.orgId})
+        </foreach>
+    </insert>
+
+    <insert id="insertPermissionMenu">
+        insert permission_menu(id,cus_id,tenant_id,group_id,menu_id,operation_id)
+        values
+        <foreach collection="permissionMenus" item="menu" separator=",">
+            (#{menu.id},#{menu.cusId},#{menu.tenantId},#{menu.groupId},#{menu.menuId},#{menu.operationId})
+        </foreach>
+    </insert>
+    <select id="queryOrgScopeByGroupId" parameterType="Long" resultType="com.kyxs.cloud.personnel.api.pojo.entity.PermissionOrgScope">
+        select * from permission_org_scope where cus_id=#{cusId} and group_id=#{groupId}
+    </select>
+    <select id="queryPermissionMenuByGroupId" parameterType="Long" resultType="com.kyxs.cloud.personnel.api.pojo.entity.PermissionMenu">
+        select * from permission_menu where cus_id=#{cusId} and group_id=#{groupId}
+    </select>
+    <select id="queryOrgScopeByGroupIds" resultType="com.kyxs.cloud.personnel.api.pojo.entity.PermissionOrgScope">
+        select * from permission_org_scope where cus_id=#{cusId} and group_id in
+        <foreach collection="groupIds" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+    <select id="queryPermissionMenuByGroupIds" resultType="com.kyxs.cloud.personnel.api.pojo.entity.PermissionMenu">
+        select pm.*,m.menu_name from permission_menu pm,menus m where pm.cus_id=#{cusId} and m.id=pm.menu_id and pm.group_id in
+        <foreach collection="groupIds" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+</mapper>

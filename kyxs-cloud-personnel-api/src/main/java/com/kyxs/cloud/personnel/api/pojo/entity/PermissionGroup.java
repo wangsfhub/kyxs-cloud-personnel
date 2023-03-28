@@ -4,18 +4,13 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.kyxs.cloud.personnel.api.annotation.Translate;
-import com.kyxs.cloud.personnel.api.constant.TranslateConstant;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
-import java.math.BigDecimal;
-import java.util.List;
-
 @Data
-@Schema(title = "角色信息")
-@TableName("roles")
-public class Role {
+@Schema(title = "权限组信息")
+@TableName("permission_group")
+public class PermissionGroup {
     @Schema(title = "主键")
     @TableId(value = "id")
     @JsonFormat(shape = JsonFormat.Shape.STRING)
@@ -31,21 +26,17 @@ public class Role {
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long cusId;
 
-    @Schema(title = "角色名称")
-    @TableField(value = "role_name")
-    private String roleName;
+    @Schema(title = "权限组名称")
+    @TableField(value = "group_name")
+    private String groupName;
 
-    @Schema(title = "角色类别")
-    @TableField(value = "role_type")
-    private String roleType;
+    @Schema(title = "权限组类型")
+    @TableField(value = "group_type")
+    private String groupType;
 
-    @Schema(title = "角色状态")
-    @TableField(value = "role_status")
-    private String roleStatus;
-
-    @Schema(title = "角色描述")
-    @TableField(value = "role_desc")
-    private String roleDesc;
+    @Schema(title = "权限组描述")
+    @TableField(value = "group_desc")
+    private String groupDesc;
 
     @Schema(title = "创建者")
     @TableField(value = "creator")
@@ -63,12 +54,13 @@ public class Role {
     @TableField(value = "update_time")
     private String updateTime;
 
-    @Schema(title = "角色范围")
-    @TableField(exist = false)
-    private List<RoleScope> roleScopes;
 
-    @Schema(title = "权限组")
+    @Schema(title = "选中机构名称，多个逗号分隔")
     @TableField(exist = false)
-    private List<RolePermissionR> rolePermissionRS;
+    private String orgNames;
+
+    @Schema(title = "选中菜单名称，多个逗号分隔")
+    @TableField(exist = false)
+    private String menuNames;
 
 }

@@ -9,13 +9,10 @@ import com.kyxs.cloud.personnel.api.constant.TranslateConstant;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
-import java.math.BigDecimal;
-import java.util.List;
-
 @Data
-@Schema(title = "角色信息")
-@TableName("roles")
-public class Role {
+@Schema(title = "权限组机构范围")
+@TableName("permission_org_scope")
+public class PermissionOrgScope {
     @Schema(title = "主键")
     @TableId(value = "id")
     @JsonFormat(shape = JsonFormat.Shape.STRING)
@@ -31,21 +28,20 @@ public class Role {
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long cusId;
 
-    @Schema(title = "角色名称")
-    @TableField(value = "role_name")
-    private String roleName;
+    @Schema(title = "分组ID")
+    @TableField(value = "group_id")
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
+    private Long groupId;
 
-    @Schema(title = "角色类别")
-    @TableField(value = "role_type")
-    private String roleType;
+    @Schema(title = "机构ID")
+    @TableField(value = "org_id")
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
+    private Long orgId;
 
-    @Schema(title = "角色状态")
-    @TableField(value = "role_status")
-    private String roleStatus;
-
-    @Schema(title = "角色描述")
-    @TableField(value = "role_desc")
-    private String roleDesc;
+    @Schema(title = "机构名称")
+    @TableField(exist = false)
+    @Translate(code = "orgId", type = TranslateConstant.EMP_DEPT)
+    private String orgName;
 
     @Schema(title = "创建者")
     @TableField(value = "creator")
@@ -62,13 +58,5 @@ public class Role {
     @Schema(title = "更新时间")
     @TableField(value = "update_time")
     private String updateTime;
-
-    @Schema(title = "角色范围")
-    @TableField(exist = false)
-    private List<RoleScope> roleScopes;
-
-    @Schema(title = "权限组")
-    @TableField(exist = false)
-    private List<RolePermissionR> rolePermissionRS;
 
 }

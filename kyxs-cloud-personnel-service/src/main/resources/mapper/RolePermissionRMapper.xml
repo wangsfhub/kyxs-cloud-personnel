@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kyxs.cloud.personnel.mapper.RolePermissionRMapper">
+
+    <select id="getListByRoleIds" resultType="com.kyxs.cloud.personnel.api.pojo.entity.RolePermissionR">
+        select rpr.*,pg.group_name from roles_permission_r rpr,permission_group pg where rpr.cus_id=#{cusId} and rpr.cus_id=pg.cus_id and rpr.group_id=pg.id and rpr.role_id in
+        <foreach collection="roleIds" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+</mapper>

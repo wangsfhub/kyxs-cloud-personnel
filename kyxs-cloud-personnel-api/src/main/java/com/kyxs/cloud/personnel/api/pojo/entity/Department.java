@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.kyxs.cloud.personnel.api.annotation.Translate;
+import com.kyxs.cloud.personnel.api.constant.TranslateConstant;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
@@ -56,6 +58,7 @@ public class Department {
 
     @Schema(title = "负责人姓名")
     @TableField(exist = false)
+    @Translate(code = "leader", type = TranslateConstant.EMP_NAME)
     private String leaderName;
 
     @Schema(title = "部门描述")

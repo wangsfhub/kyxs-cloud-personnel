@@ -4,11 +4,12 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.kyxs.cloud.core.base.entity.UserInfo;
 import com.kyxs.cloud.personnel.api.pojo.entity.Employee;
 import com.kyxs.cloud.personnel.api.pojo.entity.InfoItem;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Map;
-
+@Mapper
 public interface EmployeeMapper extends BaseMapper<Employee> {
 
     List<Map> queryEmpInfoBySetId(@Param(value = "sourceTable") String sourceTable, @Param(value = "empId") Long empId, @Param(value = "cusId") Long cusId);

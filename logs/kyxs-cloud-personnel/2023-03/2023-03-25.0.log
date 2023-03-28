@@ -1,0 +1,304 @@
+2023-03-25 22:58:26.860 127.0.0.1 [background-preinit] INFO  org.hibernate.validator.internal.util.Version:21 - HV000001: Hibernate Validator 6.2.5.Final
+2023-03-25 22:58:27.253 127.0.0.1 [main] INFO  c.u.j.c.EnableEncryptablePropertiesBeanFactoryPostProcessor:50 - Post-processing PropertySource instances
+2023-03-25 22:58:27.329 127.0.0.1 [main] INFO  c.u.j.EncryptablePropertySourceConverter:39 - Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+2023-03-25 22:58:27.330 127.0.0.1 [main] INFO  c.u.j.EncryptablePropertySourceConverter:39 - Converting PropertySource bootstrap [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2023-03-25 22:58:27.331 127.0.0.1 [main] INFO  c.u.j.EncryptablePropertySourceConverter:39 - Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+2023-03-25 22:58:27.331 127.0.0.1 [main] INFO  c.u.j.EncryptablePropertySourceConverter:39 - Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableMapPropertySourceWrapper
+2023-03-25 22:58:27.331 127.0.0.1 [main] INFO  c.u.j.EncryptablePropertySourceConverter:39 - Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+2023-03-25 22:58:27.331 127.0.0.1 [main] INFO  c.u.j.EncryptablePropertySourceConverter:39 - Converting PropertySource cachedrandom [org.springframework.cloud.util.random.CachedRandomPropertySource] to EncryptablePropertySourceWrapper
+2023-03-25 22:58:27.331 127.0.0.1 [main] INFO  c.u.j.EncryptablePropertySourceConverter:39 - Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2023-03-25 22:58:27.331 127.0.0.1 [main] INFO  c.u.j.EncryptablePropertySourceConverter:39 - Converting PropertySource Config resource 'class path resource [bootstrap-dev.yml]' via location 'optional:classpath:/' [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+2023-03-25 22:58:27.332 127.0.0.1 [main] INFO  c.u.j.EncryptablePropertySourceConverter:39 - Converting PropertySource Config resource 'class path resource [bootstrap.yml]' via location 'optional:classpath:/' [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+2023-03-25 22:58:27.386 127.0.0.1 [main] INFO  c.u.j.filter.DefaultLazyPropertyFilter:31 - Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+2023-03-25 22:58:27.412 127.0.0.1 [main] INFO  c.u.j.resolver.DefaultLazyPropertyResolver:31 - Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+2023-03-25 22:58:27.417 127.0.0.1 [main] INFO  c.u.j.detector.DefaultLazyPropertyDetector:30 - Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+2023-03-25 22:58:27.490 127.0.0.1 [main] INFO  c.a.n.p.auth.spi.client.ClientAuthPluginManager:56 - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+2023-03-25 22:58:27.491 127.0.0.1 [main] INFO  c.a.n.p.auth.spi.client.ClientAuthPluginManager:56 - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+2023-03-25 22:58:29.706 127.0.0.1 [main] INFO  c.u.j.c.EnableEncryptablePropertiesConfiguration:72 - Bootstraping jasypt-string-boot auto configuration in context: kyxs-cloud-personnel-1
+2023-03-25 22:58:29.711 127.0.0.1 [main] INFO  com.kyxs.cloud.personnel.PersonnelApplication:651 - The following 1 profile is active: "dev"
+2023-03-25 22:58:31.054 127.0.0.1 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:262 - Multiple Spring Data modules found, entering strict repository configuration mode
+2023-03-25 22:58:31.057 127.0.0.1 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:132 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-03-25 22:58:31.084 127.0.0.1 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate:201 - Finished Spring Data repository scanning in 18 ms. Found 0 Redis repository interfaces.
+2023-03-25 22:58:31.276 127.0.0.1 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner:44 - Skipping MapperFactoryBean with name 'codeItemMapper' and 'com.kyxs.cloud.personnel.mapper.CodeItemMapper' mapperInterface. Bean already defined with the same name!
+2023-03-25 22:58:31.276 127.0.0.1 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner:44 - Skipping MapperFactoryBean with name 'customHeaderMapper' and 'com.kyxs.cloud.personnel.mapper.CustomHeaderMapper' mapperInterface. Bean already defined with the same name!
+2023-03-25 22:58:31.276 127.0.0.1 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner:44 - Skipping MapperFactoryBean with name 'departmentMapper' and 'com.kyxs.cloud.personnel.mapper.DepartmentMapper' mapperInterface. Bean already defined with the same name!
+2023-03-25 22:58:31.276 127.0.0.1 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner:44 - Skipping MapperFactoryBean with name 'employeeMapper' and 'com.kyxs.cloud.personnel.mapper.EmployeeMapper' mapperInterface. Bean already defined with the same name!
+2023-03-25 22:58:31.276 127.0.0.1 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner:44 - Skipping MapperFactoryBean with name 'entryInfoItemMapper' and 'com.kyxs.cloud.personnel.mapper.EntryInfoItemMapper' mapperInterface. Bean already defined with the same name!
+2023-03-25 22:58:31.277 127.0.0.1 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner:44 - Skipping MapperFactoryBean with name 'entryInfoMapper' and 'com.kyxs.cloud.personnel.mapper.EntryInfoMapper' mapperInterface. Bean already defined with the same name!
+2023-03-25 22:58:31.277 127.0.0.1 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner:44 - Skipping MapperFactoryBean with name 'entryInfoSetMapper' and 'com.kyxs.cloud.personnel.mapper.EntryInfoSetMapper' mapperInterface. Bean already defined with the same name!
+2023-03-25 22:58:31.277 127.0.0.1 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner:44 - Skipping MapperFactoryBean with name 'infoItemMapper' and 'com.kyxs.cloud.personnel.mapper.InfoItemMapper' mapperInterface. Bean already defined with the same name!
+2023-03-25 22:58:31.277 127.0.0.1 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner:44 - Skipping MapperFactoryBean with name 'infoSetMapper' and 'com.kyxs.cloud.personnel.mapper.InfoSetMapper' mapperInterface. Bean already defined with the same name!
+2023-03-25 22:58:31.277 127.0.0.1 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner:44 - Skipping MapperFactoryBean with name 'positionMapper' and 'com.kyxs.cloud.personnel.mapper.PositionMapper' mapperInterface. Bean already defined with the same name!
+2023-03-25 22:58:31.277 127.0.0.1 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner:44 - Skipping MapperFactoryBean with name 'roleMapper' and 'com.kyxs.cloud.personnel.mapper.RoleMapper' mapperInterface. Bean already defined with the same name!
+2023-03-25 22:58:31.277 127.0.0.1 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner:44 - No MyBatis mapper was found in '[com.kyxs.**.mapper]' package. Please check your configuration.
+2023-03-25 22:58:31.328 127.0.0.1 [main] INFO  o.springframework.cloud.context.scope.GenericScope:283 - BeanFactory id=8ca8e98b-292d-33ff-b2c1-093eb32cd606
+2023-03-25 22:58:31.389 127.0.0.1 [main] INFO  c.u.j.c.EnableEncryptablePropertiesBeanFactoryPostProcessor:50 - Post-processing PropertySource instances
+2023-03-25 22:58:31.407 127.0.0.1 [main] INFO  c.u.j.EncryptablePropertySourceConverter:39 - Converting PropertySource bootstrapProperties-kyxs-cloud-personnel-dev.yml,DEFAULT_GROUP [org.springframework.cloud.bootstrap.config.BootstrapPropertySource] to EncryptableEnumerablePropertySourceWrapper
+2023-03-25 22:58:31.407 127.0.0.1 [main] INFO  c.u.j.EncryptablePropertySourceConverter:39 - Converting PropertySource bootstrapProperties-kyxs-cloud-personnel.yml,DEFAULT_GROUP [org.springframework.cloud.bootstrap.config.BootstrapPropertySource] to EncryptableEnumerablePropertySourceWrapper
+2023-03-25 22:58:31.407 127.0.0.1 [main] INFO  c.u.j.EncryptablePropertySourceConverter:39 - Converting PropertySource bootstrapProperties-kyxs-cloud-personnel,DEFAULT_GROUP [org.springframework.cloud.bootstrap.config.BootstrapPropertySource] to EncryptableEnumerablePropertySourceWrapper
+2023-03-25 22:58:31.407 127.0.0.1 [main] INFO  c.u.j.EncryptablePropertySourceConverter:39 - Converting PropertySource bootstrapProperties-application.yml,DEFAULT_GROUP [org.springframework.cloud.bootstrap.config.BootstrapPropertySource] to EncryptableEnumerablePropertySourceWrapper
+2023-03-25 22:58:31.407 127.0.0.1 [main] INFO  c.u.j.EncryptablePropertySourceConverter:39 - Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+2023-03-25 22:58:31.407 127.0.0.1 [main] INFO  c.u.j.EncryptablePropertySourceConverter:39 - Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2023-03-25 22:58:31.407 127.0.0.1 [main] INFO  c.u.j.EncryptablePropertySourceConverter:39 - Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+2023-03-25 22:58:31.408 127.0.0.1 [main] INFO  c.u.j.EncryptablePropertySourceConverter:39 - Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+2023-03-25 22:58:31.408 127.0.0.1 [main] INFO  c.u.j.EncryptablePropertySourceConverter:39 - Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableMapPropertySourceWrapper
+2023-03-25 22:58:31.408 127.0.0.1 [main] INFO  c.u.j.EncryptablePropertySourceConverter:39 - Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+2023-03-25 22:58:31.408 127.0.0.1 [main] INFO  c.u.j.EncryptablePropertySourceConverter:39 - Converting PropertySource cachedrandom [org.springframework.cloud.util.random.CachedRandomPropertySource] to EncryptablePropertySourceWrapper
+2023-03-25 22:58:31.408 127.0.0.1 [main] INFO  c.u.j.EncryptablePropertySourceConverter:39 - Converting PropertySource springCloudClientHostInfo [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2023-03-25 22:58:31.408 127.0.0.1 [main] INFO  c.u.j.EncryptablePropertySourceConverter:39 - Converting PropertySource Config resource 'class path resource [application.properties]' via location 'optional:classpath:/' [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+2023-03-25 22:58:31.408 127.0.0.1 [main] INFO  c.u.j.EncryptablePropertySourceConverter:39 - Converting PropertySource springCloudDefaultProperties [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+2023-03-25 22:58:31.452 127.0.0.1 [main] INFO  c.u.j.filter.DefaultLazyPropertyFilter:31 - Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+2023-03-25 22:58:32.009 127.0.0.1 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:108 - Tomcat initialized with port(s): 8888 (http)
+2023-03-25 22:58:32.018 127.0.0.1 [main] INFO  org.apache.coyote.http11.Http11NioProtocol:173 - Initializing ProtocolHandler ["http-nio-8888"]
+2023-03-25 22:58:32.019 127.0.0.1 [main] INFO  org.apache.catalina.core.StandardService:173 - Starting service [Tomcat]
+2023-03-25 22:58:32.019 127.0.0.1 [main] INFO  org.apache.catalina.core.StandardEngine:173 - Starting Servlet engine: [Apache Tomcat/9.0.68]
+2023-03-25 22:58:32.186 127.0.0.1 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]:173 - Initializing Spring embedded WebApplicationContext
+2023-03-25 22:58:32.186 127.0.0.1 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext:290 - Root WebApplicationContext: initialization completed in 2434 ms
+2023-03-25 22:58:32.326 127.0.0.1 [main] WARN  com.netflix.config.sources.URLConfigurationSource:126 - No URLs will be polled as dynamic configuration sources.
+2023-03-25 22:58:32.326 127.0.0.1 [main] INFO  com.netflix.config.sources.URLConfigurationSource:127 - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2023-03-25 22:58:32.333 127.0.0.1 [main] INFO  com.netflix.config.DynamicPropertyFactory:281 - DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@50ef2906
+2023-03-25 22:58:34.436 127.0.0.1 [main] INFO  o.s.cloud.openfeign.FeignClientFactoryBean:418 - For 'kyxs-cloud-outreach' URL not provided. Will try picking an instance via load-balancing.
+2023-03-25 22:58:34.511 127.0.0.1 [main] INFO  o.s.cloud.openfeign.FeignClientFactoryBean:418 - For 'kyxs-cloud-message' URL not provided. Will try picking an instance via load-balancing.
+2023-03-25 22:58:35.537 127.0.0.1 [main] INFO  com.zaxxer.hikari.HikariDataSource:110 - HikariPool-1 - Starting...
+2023-03-25 22:58:35.933 127.0.0.1 [main] INFO  com.zaxxer.hikari.HikariDataSource:123 - HikariPool-1 - Start completed.
+2023-03-25 22:58:35.961 127.0.0.1 [main] INFO  c.kyxs.cloud.personnel.init.InitConfigServiceImpl:31 - 初始化系统参数到redis中，数量:4
+2023-03-25 22:58:36.417 127.0.0.1 [main] WARN  com.netflix.config.sources.URLConfigurationSource:126 - No URLs will be polled as dynamic configuration sources.
+2023-03-25 22:58:36.418 127.0.0.1 [main] INFO  com.netflix.config.sources.URLConfigurationSource:127 - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2023-03-25 22:58:36.419 127.0.0.1 [main] INFO  c.u.j.resolver.DefaultLazyPropertyResolver:31 - Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+2023-03-25 22:58:36.419 127.0.0.1 [main] INFO  c.u.j.detector.DefaultLazyPropertyDetector:30 - Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+2023-03-25 22:58:39.334 127.0.0.1 [main] INFO  org.springframework.cloud.commons.util.InetUtils:170 - Cannot determine local hostname
+2023-03-25 22:58:39.400 127.0.0.1 [main] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger:82 - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2023-03-25 22:58:39.413 127.0.0.1 [main] INFO  o.s.b.actuate.endpoint.web.EndpointLinksResolver:58 - Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-03-25 22:58:39.538 127.0.0.1 [main] INFO  com.alibaba.nacos.client.naming:62 - initializer namespace from System Property : null
+2023-03-25 22:58:39.539 127.0.0.1 [main] INFO  com.alibaba.nacos.client.naming:66 - initializer namespace from System Environment :null
+2023-03-25 22:58:39.539 127.0.0.1 [main] INFO  com.alibaba.nacos.client.naming:73 - initializer namespace from System Property :null
+2023-03-25 22:58:39.547 127.0.0.1 [main] INFO  c.a.n.p.auth.spi.client.ClientAuthPluginManager:56 - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+2023-03-25 22:58:39.547 127.0.0.1 [main] INFO  c.a.n.p.auth.spi.client.ClientAuthPluginManager:56 - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+2023-03-25 22:58:39.556 127.0.0.1 [main] INFO  com.alibaba.nacos.common.remote.client:95 - [RpcClientFactory] create a new rpc client of fba3f036-df42-4861-986f-5100ba1a268f
+2023-03-25 22:58:39.556 127.0.0.1 [main] INFO  com.alibaba.nacos.common.remote.client:60 - [fba3f036-df42-4861-986f-5100ba1a268f] RpcClient init label, labels = {module=naming, source=sdk}
+2023-03-25 22:58:39.558 127.0.0.1 [main] INFO  com.alibaba.nacos.common.remote.client:60 - [fba3f036-df42-4861-986f-5100ba1a268f] RpcClient init, ServerListFactory = com.alibaba.nacos.client.naming.core.ServerListManager
+2023-03-25 22:58:39.558 127.0.0.1 [main] INFO  com.alibaba.nacos.common.remote.client:60 - [fba3f036-df42-4861-986f-5100ba1a268f] Registry connection listener to current client:com.alibaba.nacos.client.naming.remote.gprc.redo.NamingGrpcRedoService
+2023-03-25 22:58:39.559 127.0.0.1 [main] INFO  com.alibaba.nacos.common.remote.client:60 - [fba3f036-df42-4861-986f-5100ba1a268f] Register server push request handler:com.alibaba.nacos.client.naming.remote.gprc.NamingPushRequestHandler
+2023-03-25 22:58:39.560 127.0.0.1 [main] INFO  com.alibaba.nacos.common.remote.client:60 - [fba3f036-df42-4861-986f-5100ba1a268f] Try to connect to server on start up, server: {serverIp = '127.0.0.1', server main port = 8848}
+2023-03-25 22:58:39.694 127.0.0.1 [main] INFO  com.alibaba.nacos.common.remote.client:60 - [fba3f036-df42-4861-986f-5100ba1a268f] Success to connect to server [127.0.0.1:8848] on start up, connectionId = 1679756319580_127.0.0.1_55454
+2023-03-25 22:58:39.697 127.0.0.1 [main] INFO  com.alibaba.nacos.common.remote.client:60 - [fba3f036-df42-4861-986f-5100ba1a268f] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler
+2023-03-25 22:58:39.698 127.0.0.1 [main] INFO  com.alibaba.nacos.common.remote.client:60 - [fba3f036-df42-4861-986f-5100ba1a268f] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda$380/783117220
+2023-03-25 22:58:39.697 127.0.0.1 [com.alibaba.nacos.client.remote.worker] INFO  com.alibaba.nacos.common.remote.client:60 - [fba3f036-df42-4861-986f-5100ba1a268f] Notify connected event to listeners.
+2023-03-25 22:58:39.701 127.0.0.1 [com.alibaba.nacos.client.remote.worker] INFO  com.alibaba.nacos.client.naming:76 - Grpc connection connect
+2023-03-25 22:58:39.710 127.0.0.1 [main] INFO  com.alibaba.nacos.client.naming:141 - [SUBSCRIBE-SERVICE] service:kyxs-cloud-personnel, group:DEFAULT_GROUP, clusters:DEFAULT 
+2023-03-25 22:58:39.747 127.0.0.1 [main] INFO  com.alibaba.nacos.client.naming:181 - init new ips(0) service: DEFAULT_GROUP@@kyxs-cloud-personnel@@DEFAULT -> []
+2023-03-25 22:58:39.759 127.0.0.1 [main] INFO  com.alibaba.nacos.client.naming:166 - current ips:(0) service: DEFAULT_GROUP@@kyxs-cloud-personnel@@DEFAULT -> []
+2023-03-25 22:58:39.774 127.0.0.1 [main] INFO  org.apache.coyote.http11.Http11NioProtocol:173 - Starting ProtocolHandler ["http-nio-8888"]
+2023-03-25 22:58:39.793 127.0.0.1 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer:220 - Tomcat started on port(s): 8888 (http) with context path ''
+2023-03-25 22:58:39.797 127.0.0.1 [main] INFO  com.alibaba.nacos.client.naming:111 - [REGISTER-SERVICE] public registering service kyxs-cloud-personnel with instance Instance{instanceId='null', ip='127.0.0.1', port=8888, weight=1.0, healthy=true, enabled=true, ephemeral=true, clusterName='DEFAULT', serviceName='null', metadata={preserved.register.source=SPRING_CLOUD, group_name=default}}
+2023-03-25 22:58:39.818 127.0.0.1 [main] INFO  c.a.cloud.nacos.registry.NacosServiceRegistry:75 - nacos registry, DEFAULT_GROUP kyxs-cloud-personnel 127.0.0.1:8888 register finished
+2023-03-25 22:58:40.334 127.0.0.1 [nacos-grpc-client-executor-127.0.0.1-6] INFO  com.alibaba.nacos.common.remote.client:60 - [fba3f036-df42-4861-986f-5100ba1a268f] Receive server push request, request = NotifySubscriberRequest, requestId = 4
+2023-03-25 22:58:40.339 127.0.0.1 [nacos-grpc-client-executor-127.0.0.1-6] INFO  com.alibaba.nacos.client.naming:234 - new ips(1) service: DEFAULT_GROUP@@kyxs-cloud-personnel@@DEFAULT -> [{"ip":"127.0.0.1","port":8888,"weight":1.0,"healthy":true,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@kyxs-cloud-personnel","metadata":{"preserved.register.source":"SPRING_CLOUD","group_name":"default"},"instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ipDeleteTimeout":30000}]
+2023-03-25 22:58:40.340 127.0.0.1 [nacos-grpc-client-executor-127.0.0.1-6] INFO  com.alibaba.nacos.client.naming:166 - current ips:(1) service: DEFAULT_GROUP@@kyxs-cloud-personnel@@DEFAULT -> [{"ip":"127.0.0.1","port":8888,"weight":1.0,"healthy":true,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@kyxs-cloud-personnel","metadata":{"preserved.register.source":"SPRING_CLOUD","group_name":"default"},"instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ipDeleteTimeout":30000}]
+2023-03-25 22:58:40.341 127.0.0.1 [nacos-grpc-client-executor-127.0.0.1-6] INFO  com.alibaba.nacos.common.remote.client:60 - [fba3f036-df42-4861-986f-5100ba1a268f] Ack server push request, request = NotifySubscriberRequest, requestId = 4
+2023-03-25 22:58:40.827 127.0.0.1 [main] INFO  org.springframework.cloud.commons.util.InetUtils:170 - Cannot determine local hostname
+2023-03-25 22:58:40.871 127.0.0.1 [main] INFO  com.kyxs.cloud.personnel.PersonnelApplication:61 - Started PersonnelApplication in 15.683 seconds (JVM running for 16.559)
+2023-03-25 22:58:40.885 127.0.0.1 [main] INFO  com.alibaba.nacos.client.config.impl.CacheData:65 - nacos.cache.data.init.snapshot = true 
+2023-03-25 22:58:40.885 127.0.0.1 [main] INFO  com.alibaba.nacos.client.config.impl.ClientWorker:373 - [fixed-127.0.0.1_8848] [subscribe] kyxs-cloud-personnel-dev.yml+DEFAULT_GROUP
+2023-03-25 22:58:40.886 127.0.0.1 [main] INFO  com.alibaba.nacos.client.config.impl.CacheData:180 - [fixed-127.0.0.1_8848] [add-listener] ok, tenant=, dataId=kyxs-cloud-personnel-dev.yml, group=DEFAULT_GROUP, cnt=1
+2023-03-25 22:58:40.886 127.0.0.1 [main] INFO  com.alibaba.nacos.client.config.impl.ClientWorker:373 - [fixed-127.0.0.1_8848] [subscribe] kyxs-cloud-personnel+DEFAULT_GROUP
+2023-03-25 22:58:40.886 127.0.0.1 [main] INFO  com.alibaba.nacos.client.config.impl.CacheData:180 - [fixed-127.0.0.1_8848] [add-listener] ok, tenant=, dataId=kyxs-cloud-personnel, group=DEFAULT_GROUP, cnt=1
+2023-03-25 22:58:40.887 127.0.0.1 [main] INFO  com.alibaba.nacos.client.config.impl.ClientWorker:373 - [fixed-127.0.0.1_8848] [subscribe] kyxs-cloud-personnel.yml+DEFAULT_GROUP
+2023-03-25 22:58:40.890 127.0.0.1 [main] INFO  com.alibaba.nacos.client.config.impl.CacheData:180 - [fixed-127.0.0.1_8848] [add-listener] ok, tenant=, dataId=kyxs-cloud-personnel.yml, group=DEFAULT_GROUP, cnt=1
+2023-03-25 22:58:40.891 127.0.0.1 [main] INFO  com.kyxs.cloud.personnel.PersonnelApplication:23 -  SUCCESSFUL com.kyxs.cloud.personnel.PersonnelApplication - 人事服务 kyxs-cloud-personnel:8888 启动成功！
+2023-03-25 22:58:41.621 127.0.0.1 [RMI TCP Connection(13)-127.0.0.1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-03-25 22:58:41.625 127.0.0.1 [RMI TCP Connection(13)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet:525 - Initializing Servlet 'dispatcherServlet'
+2023-03-25 22:58:41.629 127.0.0.1 [RMI TCP Connection(13)-127.0.0.1] INFO  org.springframework.web.servlet.DispatcherServlet:547 - Completed initialization in 4 ms
+2023-03-25 22:59:33.759 127.0.0.1 [http-nio-8888-exec-1] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 22:59:34.262 127.0.0.1 [http-nio-8888-exec-3] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 22:59:34.262 127.0.0.1 [http-nio-8888-exec-2] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 22:59:34.518 127.0.0.1 [http-nio-8888-exec-5] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 22:59:34.519 127.0.0.1 [http-nio-8888-exec-4] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 22:59:37.435 127.0.0.1 [http-nio-8888-exec-6] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:00:03.247 127.0.0.1 [http-nio-8888-exec-7] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:00:03.498 127.0.0.1 [http-nio-8888-exec-9] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:00:03.498 127.0.0.1 [http-nio-8888-exec-8] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:00:03.579 127.0.0.1 [http-nio-8888-exec-10] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:00:03.579 127.0.0.1 [http-nio-8888-exec-1] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:00:06.095 127.0.0.1 [http-nio-8888-exec-5] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:00:06.145 127.0.0.1 [http-nio-8888-exec-4] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:00:24.439 127.0.0.1 [http-nio-8888-exec-2] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:01:08.356 127.0.0.1 [http-nio-8888-exec-7] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:01:08.688 127.0.0.1 [http-nio-8888-exec-10] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:01:08.688 127.0.0.1 [http-nio-8888-exec-1] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:01:08.736 127.0.0.1 [http-nio-8888-exec-8] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:01:08.736 127.0.0.1 [http-nio-8888-exec-9] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:01:14.061 127.0.0.1 [http-nio-8888-exec-4] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:01:14.095 127.0.0.1 [http-nio-8888-exec-5] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:01:14.824 127.0.0.1 [http-nio-8888-exec-2] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:01:14.881 127.0.0.1 [http-nio-8888-exec-3] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:02:02.462 127.0.0.1 [http-nio-8888-exec-6] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:02:02.800 127.0.0.1 [http-nio-8888-exec-8] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:02:02.800 127.0.0.1 [http-nio-8888-exec-7] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:02:02.851 127.0.0.1 [http-nio-8888-exec-1] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:02:02.851 127.0.0.1 [http-nio-8888-exec-9] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:02:04.325 127.0.0.1 [http-nio-8888-exec-10] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:02:04.350 127.0.0.1 [http-nio-8888-exec-5] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:02:29.337 127.0.0.1 [http-nio-8888-exec-4] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:02:29.620 127.0.0.1 [http-nio-8888-exec-3] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:02:29.619 127.0.0.1 [http-nio-8888-exec-2] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:02:29.710 127.0.0.1 [http-nio-8888-exec-1] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:02:29.711 127.0.0.1 [http-nio-8888-exec-6] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:02:30.636 127.0.0.1 [http-nio-8888-exec-9] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:02:30.669 127.0.0.1 [http-nio-8888-exec-8] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:02:33.202 127.0.0.1 [http-nio-8888-exec-7] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:03:28.817 127.0.0.1 [http-nio-8888-exec-5] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:03:29.089 127.0.0.1 [http-nio-8888-exec-10] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:03:29.089 127.0.0.1 [http-nio-8888-exec-4] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:03:29.123 127.0.0.1 [http-nio-8888-exec-1] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:03:29.123 127.0.0.1 [http-nio-8888-exec-6] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:03:30.949 127.0.0.1 [http-nio-8888-exec-2] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:03:30.978 127.0.0.1 [http-nio-8888-exec-3] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:03:35.875 127.0.0.1 [http-nio-8888-exec-8] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:04:34.288 127.0.0.1 [http-nio-8888-exec-5] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:04:34.636 127.0.0.1 [http-nio-8888-exec-1] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:04:34.636 127.0.0.1 [http-nio-8888-exec-6] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:04:34.659 127.0.0.1 [http-nio-8888-exec-4] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:04:34.659 127.0.0.1 [http-nio-8888-exec-10] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:04:37.371 127.0.0.1 [http-nio-8888-exec-3] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:04:37.435 127.0.0.1 [http-nio-8888-exec-2] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:04:40.245 127.0.0.1 [http-nio-8888-exec-8] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:04:43.226 127.0.0.1 [http-nio-8888-exec-9] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:04:45.958 127.0.0.1 [http-nio-8888-exec-7] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:07:05.149 127.0.0.1 [http-nio-8888-exec-4] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:07:05.545 127.0.0.1 [http-nio-8888-exec-6] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:07:05.545 127.0.0.1 [http-nio-8888-exec-1] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:07:05.585 127.0.0.1 [http-nio-8888-exec-2] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:07:05.585 127.0.0.1 [http-nio-8888-exec-3] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:07:08.159 127.0.0.1 [http-nio-8888-exec-8] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:07:08.191 127.0.0.1 [http-nio-8888-exec-9] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:07:09.461 127.0.0.1 [http-nio-8888-exec-7] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:07:12.926 127.0.0.1 [http-nio-8888-exec-5] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:07:13.084 127.0.0.1 [http-nio-8888-exec-4] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:07:13.084 127.0.0.1 [http-nio-8888-exec-10] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:07:13.107 127.0.0.1 [http-nio-8888-exec-2] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:07:13.107 127.0.0.1 [http-nio-8888-exec-3] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:07:14.833 127.0.0.1 [http-nio-8888-exec-6] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:07:14.900 127.0.0.1 [http-nio-8888-exec-1] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:07:15.973 127.0.0.1 [http-nio-8888-exec-9] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:07:41.054 127.0.0.1 [http-nio-8888-exec-8] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:07:41.413 127.0.0.1 [http-nio-8888-exec-5] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:07:41.413 127.0.0.1 [http-nio-8888-exec-7] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:07:41.430 127.0.0.1 [http-nio-8888-exec-3] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:07:41.431 127.0.0.1 [http-nio-8888-exec-2] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:07:42.752 127.0.0.1 [http-nio-8888-exec-10] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:07:42.777 127.0.0.1 [http-nio-8888-exec-4] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:07:45.191 127.0.0.1 [http-nio-8888-exec-1] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:07:46.325 127.0.0.1 [http-nio-8888-exec-6] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:07:47.940 127.0.0.1 [http-nio-8888-exec-9] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:07:54.466 127.0.0.1 [http-nio-8888-exec-8] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:07:56.151 127.0.0.1 [http-nio-8888-exec-2] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:07:56.671 127.0.0.1 [http-nio-8888-exec-3] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:08:51.513 127.0.0.1 [http-nio-8888-exec-5] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:08:51.981 127.0.0.1 [http-nio-8888-exec-4] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:08:51.981 127.0.0.1 [http-nio-8888-exec-10] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:08:51.999 127.0.0.1 [http-nio-8888-exec-1] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:08:51.999 127.0.0.1 [http-nio-8888-exec-6] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:08:54.072 127.0.0.1 [http-nio-8888-exec-9] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:08:54.105 127.0.0.1 [http-nio-8888-exec-8] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:08:56.315 127.0.0.1 [http-nio-8888-exec-2] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:09:00.255 127.0.0.1 [http-nio-8888-exec-3] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:09:05.408 127.0.0.1 [http-nio-8888-exec-7] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:10:23.319 127.0.0.1 [http-nio-8888-exec-1] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:10:23.658 127.0.0.1 [http-nio-8888-exec-4] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:10:23.660 127.0.0.1 [http-nio-8888-exec-10] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:10:23.712 127.0.0.1 [http-nio-8888-exec-8] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:10:23.711 127.0.0.1 [http-nio-8888-exec-9] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:10:25.000 127.0.0.1 [http-nio-8888-exec-2] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:10:25.032 127.0.0.1 [http-nio-8888-exec-3] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:11:05.834 127.0.0.1 [http-nio-8888-exec-7] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:11:06.152 127.0.0.1 [http-nio-8888-exec-5] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:11:06.152 127.0.0.1 [http-nio-8888-exec-6] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:11:06.201 127.0.0.1 [http-nio-8888-exec-9] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:11:06.200 127.0.0.1 [http-nio-8888-exec-1] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:11:07.296 127.0.0.1 [http-nio-8888-exec-8] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:11:07.343 127.0.0.1 [http-nio-8888-exec-10] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:11:31.059 127.0.0.1 [http-nio-8888-exec-4] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:11:33.988 127.0.0.1 [http-nio-8888-exec-3] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:11:38.613 127.0.0.1 [http-nio-8888-exec-2] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:11:38.950 127.0.0.1 [http-nio-8888-exec-7] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:11:38.950 127.0.0.1 [http-nio-8888-exec-9] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:11:38.984 127.0.0.1 [http-nio-8888-exec-5] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:11:38.984 127.0.0.1 [http-nio-8888-exec-1] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:11:41.793 127.0.0.1 [http-nio-8888-exec-6] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:11:41.835 127.0.0.1 [http-nio-8888-exec-10] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:11:44.266 127.0.0.1 [http-nio-8888-exec-8] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:12:24.975 127.0.0.1 [http-nio-8888-exec-4] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:12:25.620 127.0.0.1 [http-nio-8888-exec-3] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:12:25.620 127.0.0.1 [http-nio-8888-exec-2] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:12:25.739 127.0.0.1 [http-nio-8888-exec-1] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:12:25.740 127.0.0.1 [http-nio-8888-exec-5] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:12:27.396 127.0.0.1 [http-nio-8888-exec-9] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:12:27.429 127.0.0.1 [http-nio-8888-exec-7] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:12:30.073 127.0.0.1 [http-nio-8888-exec-10] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:12:31.466 127.0.0.1 [http-nio-8888-exec-6] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:13:00.989 127.0.0.1 [http-nio-8888-exec-8] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:13:02.537 127.0.0.1 [http-nio-8888-exec-4] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:13:10.615 127.0.0.1 [http-nio-8888-exec-1] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:13:30.285 127.0.0.1 [http-nio-8888-exec-3] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:13:30.538 127.0.0.1 [http-nio-8888-exec-9] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:13:30.538 127.0.0.1 [http-nio-8888-exec-7] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:13:30.558 127.0.0.1 [http-nio-8888-exec-6] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:13:30.558 127.0.0.1 [http-nio-8888-exec-10] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:13:34.357 127.0.0.1 [http-nio-8888-exec-8] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:13:36.258 127.0.0.1 [http-nio-8888-exec-4] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:14:00.703 127.0.0.1 [http-nio-8888-exec-1] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:14:21.554 127.0.0.1 [http-nio-8888-exec-5] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:14:21.797 127.0.0.1 [http-nio-8888-exec-2] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:14:21.797 127.0.0.1 [http-nio-8888-exec-3] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:14:21.819 127.0.0.1 [http-nio-8888-exec-6] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:14:21.819 127.0.0.1 [http-nio-8888-exec-10] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:14:25.421 127.0.0.1 [http-nio-8888-exec-7] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:14:25.483 127.0.0.1 [http-nio-8888-exec-9] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:14:27.107 127.0.0.1 [http-nio-8888-exec-8] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:15:57.606 127.0.0.1 [http-nio-8888-exec-5] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:15:57.638 127.0.0.1 [http-nio-8888-exec-6] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:16:00.547 127.0.0.1 [http-nio-8888-exec-10] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:16:08.103 127.0.0.1 [http-nio-8888-exec-3] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:16:22.345 127.0.0.1 [http-nio-8888-exec-2] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:16:26.554 127.0.0.1 [http-nio-8888-exec-9] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:16:27.912 127.0.0.1 [http-nio-8888-exec-7] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:16:28.968 127.0.0.1 [http-nio-8888-exec-8] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:17:02.248 127.0.0.1 [http-nio-8888-exec-1] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:17:03.815 127.0.0.1 [http-nio-8888-exec-6] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:17:05.227 127.0.0.1 [http-nio-8888-exec-5] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:17:10.917 127.0.0.1 [http-nio-8888-exec-10] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:17:17.886 127.0.0.1 [http-nio-8888-exec-3] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:30:56.403 127.0.0.1 [http-nio-8888-exec-2] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:35:18.178 127.0.0.1 [http-nio-8888-exec-9] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:35:18.520 127.0.0.1 [http-nio-8888-exec-7] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:35:40.629 127.0.0.1 [http-nio-8888-exec-8] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:35:42.254 127.0.0.1 [http-nio-8888-exec-4] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:35:43.501 127.0.0.1 [http-nio-8888-exec-1] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:36:30.522 127.0.0.1 [http-nio-8888-exec-6] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:36:35.416 127.0.0.1 [http-nio-8888-exec-5] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:36:39.876 127.0.0.1 [http-nio-8888-exec-10] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:36:52.437 127.0.0.1 [http-nio-8888-exec-3] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:39:36.075 127.0.0.1 [http-nio-8888-exec-2] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:39:40.251 127.0.0.1 [http-nio-8888-exec-9] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:39:42.891 127.0.0.1 [http-nio-8888-exec-7] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:39:43.851 127.0.0.1 [http-nio-8888-exec-8] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:41:19.144 127.0.0.1 [http-nio-8888-exec-4] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:41:20.288 127.0.0.1 [http-nio-8888-exec-1] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:44:36.490 127.0.0.1 [http-nio-8888-exec-6] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:46:14.111 127.0.0.1 [http-nio-8888-exec-5] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:46:25.769 127.0.0.1 [http-nio-8888-exec-10] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:54:17.449 127.0.0.1 [http-nio-8888-exec-3] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-25 23:59:22.294 127.0.0.1 [http-nio-8888-exec-2] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-26 00:22:49.221 127.0.0.1 [http-nio-8888-exec-9] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-26 00:30:36.844 127.0.0.1 [http-nio-8888-exec-7] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-26 00:33:20.955 127.0.0.1 [http-nio-8888-exec-8] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-26 00:33:37.826 127.0.0.1 [http-nio-8888-exec-4] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-26 00:49:16.875 127.0.0.1 [http-nio-8888-exec-1] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-26 00:49:18.292 127.0.0.1 [http-nio-8888-exec-6] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-26 00:51:15.571 127.0.0.1 [http-nio-8888-exec-5] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-26 00:51:25.319 127.0.0.1 [http-nio-8888-exec-10] INFO  c.k.c.core.base.filter.TenantContextHolderFilter:47 - 获取到的租户ID为:1
+2023-03-26 00:52:20.144 127.0.0.1 [Thread-6] WARN  com.alibaba.nacos.common.http.HttpClientBeanHolder:108 - [HttpClientBeanHolder] Start destroying common HttpClient
+2023-03-26 00:52:20.142 127.0.0.1 [Thread-14] WARN  com.alibaba.nacos.common.notify.NotifyCenter:136 - [NotifyCenter] Start destroying Publisher
+2023-03-26 00:52:20.158 127.0.0.1 [Thread-14] WARN  com.alibaba.nacos.common.notify.NotifyCenter:153 - [NotifyCenter] Destruction of the end
+2023-03-26 00:52:20.212 127.0.0.1 [Thread-6] WARN  com.alibaba.nacos.common.http.HttpClientBeanHolder:114 - [HttpClientBeanHolder] Destruction of the end

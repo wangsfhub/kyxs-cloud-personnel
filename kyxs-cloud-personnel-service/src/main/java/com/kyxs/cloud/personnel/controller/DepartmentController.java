@@ -88,4 +88,9 @@ public class DepartmentController extends BaseController {
     public Map<Long,String> getDepartments(@PathVariable(value = "cusId") Long cusId){
         return departmentService.getDepartments(cusId);
     }
+    @GetMapping("/departments/{superId}/{isLoadEmp}")
+    @Operation(summary = "查询部门下子部门及部门下的人")
+    public R getDepartmentsBySuperId(@PathVariable(value = "superId") Long superId,@PathVariable(value = "isLoadEmp") Integer isLoadEmp){
+        return R.ok(departmentService.getDepartmentsBySuperId(superId,isLoadEmp));
+    }
 }

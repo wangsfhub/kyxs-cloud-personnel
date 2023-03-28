@@ -15,4 +15,6 @@ public interface DepartmentService extends IService<Department> {
     Map<Long, String> getDepartments(Long cusId);
 
     void saveChangeInfo(DepartmentChange departmentChange);
+
+    List<Map> getDepartmentsBySuperId(Long superId,Integer isLoadEmp);
 }

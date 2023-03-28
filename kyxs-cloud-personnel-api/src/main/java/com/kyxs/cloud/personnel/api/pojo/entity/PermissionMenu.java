@@ -4,18 +4,13 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.kyxs.cloud.personnel.api.annotation.Translate;
-import com.kyxs.cloud.personnel.api.constant.TranslateConstant;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
-import java.math.BigDecimal;
-import java.util.List;
-
 @Data
-@Schema(title = "角色信息")
-@TableName("roles")
-public class Role {
+@Schema(title = "权限组菜单表")
+@TableName("permission_menu")
+public class PermissionMenu {
     @Schema(title = "主键")
     @TableId(value = "id")
     @JsonFormat(shape = JsonFormat.Shape.STRING)
@@ -31,21 +26,24 @@ public class Role {
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long cusId;
 
-    @Schema(title = "角色名称")
-    @TableField(value = "role_name")
-    private String roleName;
+    @Schema(title = "分组ID")
+    @TableField(value = "group_id")
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
+    private Long groupId;
 
-    @Schema(title = "角色类别")
-    @TableField(value = "role_type")
-    private String roleType;
+    @Schema(title = "菜单ID")
+    @TableField(value = "menu_id")
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
+    private Long menuId;
 
-    @Schema(title = "角色状态")
-    @TableField(value = "role_status")
-    private String roleStatus;
+    @Schema(title = "菜单名称")
+    @TableField(exist = false)
+    private String menuName;
 
-    @Schema(title = "角色描述")
-    @TableField(value = "role_desc")
-    private String roleDesc;
+    @Schema(title = "操作权限id")
+    @TableField(value = "operation_id")
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
+    private String operationId;
 
     @Schema(title = "创建者")
     @TableField(value = "creator")
@@ -62,13 +60,4 @@ public class Role {
     @Schema(title = "更新时间")
     @TableField(value = "update_time")
     private String updateTime;
-
-    @Schema(title = "角色范围")
-    @TableField(exist = false)
-    private List<RoleScope> roleScopes;
-
-    @Schema(title = "权限组")
-    @TableField(exist = false)
-    private List<RolePermissionR> rolePermissionRS;
-
 }
