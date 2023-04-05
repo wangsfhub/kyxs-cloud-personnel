@@ -1,7 +1,7 @@
 package com.kyxs.cloud.personnel.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.toolkit.IdWorker;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.kyxs.cloud.core.base.annotation.RepeatSubmit;
 import com.kyxs.cloud.core.base.controller.BaseController;
 import com.kyxs.cloud.core.base.entity.UserInfo;
@@ -15,8 +15,8 @@ import com.kyxs.cloud.personnel.api.pojo.entity.Role;
 import com.kyxs.cloud.personnel.service.RoleService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,9 +26,9 @@ import java.util.Map;
 @Tag(name = "角色管理")
 @RestController
 @RequestMapping("/role")
+@RequiredArgsConstructor
 public class RoleController extends BaseController {
-    @Autowired
-    private RoleService roleService;
+    private final RoleService roleService;
 
     @PostMapping("/save")
     @Operation(summary = "新增/编辑")
@@ -66,11 +66,7 @@ public class RoleController extends BaseController {
     public R updateStatus( @RequestBody RoleDto roleDto){
         UserInfo userInfo = UserInfoUtil.getUserInfo();
         if(roleDto.getId()!=null&& StringUtils.isNotEmpty(roleDto.getRoleStatus())){
-            Role role = new Role();
-            role.setCusId(userInfo.getCusId());
-            role.setId(roleDto.getId());
-            role.setRoleStatus(roleDto.getRoleStatus());
-            roleService.updateById(role);
+            roleService.update(new UpdateWrapper<Role>().set("role_status",roleDto.getRoleStatus()).eq("cus_id",userInfo.getCusId()).eq("id",roleDto.getId()));
         }
         return R.ok();
     }

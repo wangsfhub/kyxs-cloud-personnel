@@ -15,6 +15,7 @@ import com.kyxs.cloud.personnel.api.enums.CustomHeaderEnum;
 import com.kyxs.cloud.personnel.service.*;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.RequiredArgsConstructor;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
@@ -25,13 +26,12 @@ import java.util.*;
 @Tag(name = "自定义表头-涉及各业务场景")
 @RestController
 @RequestMapping("/custom-header")
+@RequiredArgsConstructor
 public class CustomHeaderController extends BaseController {
 
-    @Autowired
-    private CustomHeaderService customHeaderService;
+    private final CustomHeaderService customHeaderService;
 
-    @Autowired
-    private Map<String, CustomHeaderCommonService> customHeaderCommonServiceMap;
+    private final Map<String, CustomHeaderCommonService> customHeaderCommonServiceMap;
 
     @PostMapping("/save")
     @Operation(summary = "自定义表头保存")

@@ -7,4 +7,15 @@
         select r.*,rpr.group_id from roles r left join roles_permission_r rpr on rpr.cus_id=r.cus_id and rpr.role_id=r.id where r.cus_id=#{condition.cusId} order by r.create_time desc
        ) a group by a.id,a.cus_id,a.tenant_id,a.role_name,a.role_type,a.role_status,a.role_desc,a.create_time
     </select>
+
+    <select id="getRolesByScopeIds" resultType="com.kyxs.cloud.personnel.api.pojo.entity.Role">
+        select  a.id,a.cus_id,a.tenant_id,a.role_name,a.role_type,a.role_status,a.role_desc,a.create_time
+        from roles a where a.cus_id = #{cusId}
+        and EXISTS (
+            select rs.id from roles_scope rs where rs.cus_id=a.cus_id and rs.role_id=a.id and rs.scope_id in
+            <foreach collection="scopeIds" item="item" open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        )
+    </select>
 </mapper>

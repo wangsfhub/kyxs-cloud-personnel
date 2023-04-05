@@ -44,20 +44,6 @@ public class DepartmentServiceImpl extends ServiceImpl<DepartmentMapper, Departm
     }
 
     @Override
-    public Map<Long, String> getDepartments(Long cusId) {
-        Map<Long, String> map = new HashMap<>();
-        try {
-            List<Department> departments = baseMapper.selectList(new LambdaQueryWrapper<Department>().eq(Department::getCusId,cusId));
-            for (Department department : departments) {
-                map.put(department.getId(), department.getDeptName());
-            }
-        } catch (Exception e) {
-            throw new BusinessException("用户单位信息获取失败");
-        }
-        return map;
-    }
-
-    @Override
     @Transactional(rollbackFor = Exception.class)
     public void saveChangeInfo(DepartmentChange departmentChange) {
         //添加变更记录
@@ -118,5 +104,19 @@ public class DepartmentServiceImpl extends ServiceImpl<DepartmentMapper, Departm
             });
         }
         return rtnList;
+    }
+
+    @Override
+    public Map<Long, String> getTranslateDepartments(Long cusId, List<Long> ids) {
+        Map<Long, String> map = new HashMap<>();
+        try {
+            List<Department> departments = baseMapper.selectList(new QueryWrapper<Department>().select("id","dept_name").eq("cus_id",cusId).in("id",ids));
+            for (Department department : departments) {
+                map.put(department.getId(), department.getDeptName());
+            }
+        } catch (Exception e) {
+            throw new BusinessException("用户单位信息获取失败");
+        }
+        return map;
     }
 }

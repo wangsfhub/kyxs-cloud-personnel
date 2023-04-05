@@ -166,4 +166,9 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements Ro
             rolePermissionRService.saveBatch(rolePermissionRS);
         }
     }
+
+    @Override
+    public List<Role> getRolesByScopeIds(Long cusId, List<Long> scopeIds) {
+        return baseMapper.getRolesByScopeIds(cusId,scopeIds);
+    }
 }

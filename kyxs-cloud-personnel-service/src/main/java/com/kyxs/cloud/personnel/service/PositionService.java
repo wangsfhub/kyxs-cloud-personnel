@@ -11,5 +11,5 @@ import java.util.Map;
 public interface PositionService extends IService<Position> {
     Page<List<Position>> queryListByPage(PageQuery pageQuery);
 
-    Map<Long, String> getPositions(Long cusId);
+    Map<Long, String> getTranslatePositions(Long cusId, List<Long> ids);
 }

@@ -14,20 +14,19 @@ import com.kyxs.cloud.personnel.api.pojo.entity.DepartmentChange;
 import com.kyxs.cloud.personnel.service.DepartmentService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @Tag(name = "部门管理")
 @RestController
 @RequestMapping("/dept")
+@RequiredArgsConstructor
 public class DepartmentController extends BaseController {
     private final DepartmentService departmentService;
-
-    public DepartmentController(DepartmentService departmentService) {
-        this.departmentService = departmentService;
-    }
 
     @GetMapping("/tree")
     @Operation(summary = "列表查询")
@@ -83,14 +82,14 @@ public class DepartmentController extends BaseController {
         return R.ok(departmentService.getOrgList(department));
     }
 
-    @GetMapping("/all/{cusId}")
-    @Operation(summary = "查询所有部门翻译使用")
-    public Map<Long,String> getDepartments(@PathVariable(value = "cusId") Long cusId){
-        return departmentService.getDepartments(cusId);
-    }
     @GetMapping("/departments/{superId}/{isLoadEmp}")
     @Operation(summary = "查询部门下子部门及部门下的人")
     public R getDepartmentsBySuperId(@PathVariable(value = "superId") Long superId,@PathVariable(value = "isLoadEmp") Integer isLoadEmp){
         return R.ok(departmentService.getDepartmentsBySuperId(superId,isLoadEmp));
+    }
+    @GetMapping("/translate/list")
+    @Operation(summary = "查询部门翻译使用")
+    public Map<Long,String> getTranslateDepartments(@RequestParam("cusId") Long cusId, @RequestParam("ids") List<Long> ids){
+        return departmentService.getTranslateDepartments(cusId,ids);
     }
 }

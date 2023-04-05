@@ -16,8 +16,8 @@ import com.kyxs.cloud.personnel.api.pojo.entity.PermissionOrgScope;
 import com.kyxs.cloud.personnel.service.PermissionGroupService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.RequiredArgsConstructor;
 import org.apache.commons.collections.CollectionUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,9 +28,9 @@ import java.util.List;
 @Tag(name = "权限组管理")
 @RestController
 @RequestMapping("/permissionGroup")
+@RequiredArgsConstructor
 public class PermissionGroupController extends BaseController {
-    @Autowired
-    private PermissionGroupService permissionGroupService;
+    private final PermissionGroupService permissionGroupService;
 
     @PostMapping("/save")
     @Operation(summary = "新增/编辑")

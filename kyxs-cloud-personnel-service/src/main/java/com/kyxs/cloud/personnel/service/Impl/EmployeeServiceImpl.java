@@ -59,20 +59,6 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> i
     }
 
     @Override
-    public Map<Long, String> getEmployees(Long cusId) {
-        Map<Long, String> map = new HashMap<>();
-        try {
-            List<Employee> employees = baseMapper.selectList(new LambdaQueryWrapper<Employee>().eq(Employee::getCusId,cusId));
-            for (Employee employee : employees) {
-                map.put(employee.getId(), employee.getEmpName());
-            }
-        } catch (Exception e) {
-            throw new BusinessException("员工信息信息获取失败");
-        }
-        return map;
-    }
-
-    @Override
     public Employee getDetailById(Long id) {
         UserInfo userInfo = UserInfoUtil.getUserInfo();
         Employee employee = baseMapper.selectOne(new LambdaQueryWrapper<Employee>().eq(Employee::getId,id).eq(Employee::getCusId,userInfo.getCusId()));
@@ -169,6 +155,20 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee> i
             throw new BusinessException("删除失败，参数有误");
         }
         baseMapper.deleteBySetId(infoSet.getSourceTable(),UserInfoUtil.getUserInfo().getCusId(),id);
+    }
+
+    @Override
+    public Map<Long, String> getTranslateEmployees(Long cusId, List<Long> ids) {
+        Map<Long, String> map = new HashMap<>();
+        try {
+            List<Employee> employees = baseMapper.selectList(new QueryWrapper<Employee>().select("id","emp_name").eq("cus_id",cusId).in("id",ids));
+            for (Employee employee : employees) {
+                map.put(employee.getId(), employee.getEmpName());
+            }
+        } catch (Exception e) {
+            throw new BusinessException("员工信息信息获取失败");
+        }
+        return map;
     }
 
 

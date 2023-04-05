@@ -19,4 +19,6 @@ public interface PermissionGroupService extends IService<PermissionGroup> {
     List<PermissionOrgScope> queryOrgScopeByGroupId(Long cusId, Long groupId);
 
     List<PermissionMenu> queryPermissionMenuByGroupId(Long cusId, Long groupId);
+
+    List<PermissionGroup> getGroupsByRoleIds(Long cusId, List<Long> roleIds);
 }

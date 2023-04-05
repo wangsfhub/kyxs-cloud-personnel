@@ -39,7 +39,7 @@ public class TranslateUtils {
         if (CollectionUtil.isEmpty(list)) {
             return;
         }
-        TranslateObjectEntity info = getObjectInfo(list.get(0));
+        TranslateObjectEntity info = getObjectInfo(list,list.get(0));
         if (ObjectUtil.isEmpty(info)) {
             return;
         }
@@ -62,14 +62,13 @@ public class TranslateUtils {
         for (T obj : list) {
             R targetObj = BeanUtil.copyProperties(obj, targetClazz);
             if (ObjectUtil.isEmpty(info)) {
-                info = getObjectInfo(targetObj);
+                info = getObjectInfo(null,targetObj);
             }
             translateObject(targetObj, info);
             targrts.add(targetObj);
         }
         return targrts;
     }
-
 
     /**
      * 翻译单个实体
@@ -81,7 +80,7 @@ public class TranslateUtils {
         if (ObjectUtil.isEmpty(obj)) {
             return;
         }
-        TranslateObjectEntity info = getObjectInfo(obj);
+        TranslateObjectEntity info = getObjectInfo(null,obj);
         if (ObjectUtil.isEmpty(info)) {
             return;
         }
@@ -102,7 +101,7 @@ public class TranslateUtils {
             return null;
         }
         R properties = BeanUtil.copyProperties(obj, targetClazz);
-        TranslateObjectEntity info = getObjectInfo(properties);
+        TranslateObjectEntity info = getObjectInfo(null,properties);
         if (ObjectUtil.isEmpty(info)) {
             return null;
         }
@@ -117,7 +116,7 @@ public class TranslateUtils {
      * @param obj 对象信息
      * @param <T> 对象字段翻译信息
      */
-    private static <T> TranslateObjectEntity getObjectInfo(T obj) {
+    private static <T> TranslateObjectEntity getObjectInfo(List<T> list,T obj) {
         if (ObjectUtil.isEmpty(obj)) {
             return null;
         }
@@ -139,6 +138,7 @@ public class TranslateUtils {
         Map<String, String> dictions = null;
 
         List<String> dictionsCodes = new ArrayList<>();
+        Map<Integer,List<Long>> keys = new HashMap<>();
         for (Field field : fields.values()) {
             if (field.isAnnotationPresent(Translate.class)) {
                 translateEntity = new TranslateEntity();
@@ -148,22 +148,25 @@ public class TranslateUtils {
                 if (StringUtils.isBlank(translateCode)) {
                     translateCode = field.getName();
                 }
-                translateEntity.setField(fields.get(translateCode));
+                Field codeField = fields.get(translateCode);
+                codeField.setAccessible(true);
+                translateEntity.setField(codeField);
                 int translateType = annotation.type();
                 pair = new Pair(translateCode, field.getName());
                 translateEntity.setTranslateType(translateType);
                 translateEntity.setPair(pair);
+
                 if (TranslateConstant.ENUM_CLAZ == translateType) {
                     translateEntity.setEnumClass(annotation.EnumClaz());
                 }
                 if (TranslateConstant.EMP_DEPT == translateType && MapUtils.isEmpty(userUnits)) {
-                    userUnits =  translateFeignService.getDepartments(UserInfoUtil.getUserInfo().getCusId());
+                    pushKeys(TranslateConstant.EMP_DEPT,keys,list,codeField);
                 }
                 if (TranslateConstant.EMP_POST == translateType && MapUtils.isEmpty(userPostions)) {
-                    userPostions = translateFeignService.getPositions(UserInfoUtil.getUserInfo().getCusId());
+                    pushKeys(TranslateConstant.EMP_POST,keys,list,codeField);
                 }
                 if (TranslateConstant.EMP_NAME == translateType && MapUtils.isEmpty(userEmployees)) {
-                    userEmployees = translateFeignService.getEmployees(UserInfoUtil.getUserInfo().getCusId());
+                    pushKeys(TranslateConstant.EMP_NAME,keys,list,codeField);
                 }
                 if (TranslateConstant.DICTION == translateType && MapUtils.isEmpty(dictions)) {
                     String[] dictionaryType = annotation.dictionaryType();
@@ -179,12 +182,40 @@ public class TranslateUtils {
             }
         }
         dictions = getDictions(dictionsCodes);
+        if(keys.containsKey(TranslateConstant.EMP_NAME)){
+            userEmployees = translateFeignService.getTranslateEmployees(UserInfoUtil.getUserInfo().getCusId(),keys.get(TranslateConstant.EMP_NAME));
+        }
+        if(keys.containsKey(TranslateConstant.EMP_POST)){
+            userPostions = translateFeignService.getTranslatePositions(UserInfoUtil.getUserInfo().getCusId(),keys.get(TranslateConstant.EMP_POST));
+        }
+        if(keys.containsKey(TranslateConstant.EMP_DEPT)){
+            userUnits =  translateFeignService.getTranslateDepartments(UserInfoUtil.getUserInfo().getCusId(),keys.get(TranslateConstant.EMP_DEPT));
+        }
         objectEntity.setUserUnits(userUnits);
         objectEntity.setUserPositions(userPostions);
         objectEntity.setUserEmployees(userEmployees);
         objectEntity.setDictions(dictions);
         objectEntity.setTranslateInfo(translateInfo);
         return objectEntity;
+    }
+    private static <T> void pushKeys(Integer translateType,Map<Integer,List<Long>> keys,List<T> list,Field codeField){
+        if(CollectionUtils.isNotEmpty(list)){
+            List<Long> ids = new ArrayList<>();
+            list.forEach(t -> {
+                try {
+                    ids.add((Long)codeField.get(t));
+                } catch (IllegalAccessException e) {
+                    throw new RuntimeException(e);
+                }
+            });
+            if(keys.containsKey(translateType)){
+                List<Long> values = keys.get(translateType);
+                values.addAll(ids);
+                keys.put(translateType,values);
+            }else{
+                keys.put(translateType,ids);
+            }
+        }
     }
 
 

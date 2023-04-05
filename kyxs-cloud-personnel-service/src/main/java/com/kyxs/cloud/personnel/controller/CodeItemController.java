@@ -9,6 +9,7 @@ import com.kyxs.cloud.personnel.api.pojo.entity.CodeItem;
 import com.kyxs.cloud.personnel.service.CodeItemService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,12 +20,9 @@ import java.util.stream.Collectors;
 @Tag(name = "代码管理")
 @RestController
 @RequestMapping("/code")
+@RequiredArgsConstructor
 public class CodeItemController extends BaseController {
     private final CodeItemService codeItemService;
-
-    public CodeItemController(CodeItemService codeItemService) {
-        this.codeItemService = codeItemService;
-    }
 
     @GetMapping("/items")
     @Operation(summary = "查询所有系统代码值")

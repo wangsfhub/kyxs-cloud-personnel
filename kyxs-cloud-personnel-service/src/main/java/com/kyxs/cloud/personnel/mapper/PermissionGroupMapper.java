@@ -4,10 +4,11 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.kyxs.cloud.personnel.api.pojo.entity.PermissionGroup;
 import com.kyxs.cloud.personnel.api.pojo.entity.PermissionMenu;
 import com.kyxs.cloud.personnel.api.pojo.entity.PermissionOrgScope;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
-
+@Mapper
 public interface PermissionGroupMapper extends BaseMapper<PermissionGroup> {
     void insertPermissionOrgScope(@Param("orgScopes") List<PermissionOrgScope> orgScopes);
 
@@ -25,4 +26,5 @@ public interface PermissionGroupMapper extends BaseMapper<PermissionGroup> {
 
     List<PermissionMenu> queryPermissionMenuByGroupIds(@Param("cusId")Long cusId, @Param("groupIds")List<Long> groupIds);
 
+    List<PermissionGroup> getGroupsByRoleIds(@Param("cusId")Long cusId, @Param("roleIds")List<Long> roleIds);
 }

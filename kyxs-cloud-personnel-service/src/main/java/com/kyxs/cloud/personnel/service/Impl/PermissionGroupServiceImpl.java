@@ -122,4 +122,9 @@ public class PermissionGroupServiceImpl  extends ServiceImpl<PermissionGroupMapp
     public List<PermissionMenu> queryPermissionMenuByGroupId(Long cusId, Long groupId) {
         return baseMapper.queryPermissionMenuByGroupId(cusId,groupId);
     }
+
+    @Override
+    public List<PermissionGroup> getGroupsByRoleIds(Long cusId, List<Long> roleIds) {
+        return baseMapper.getGroupsByRoleIds(cusId,roleIds);
+    }
 }

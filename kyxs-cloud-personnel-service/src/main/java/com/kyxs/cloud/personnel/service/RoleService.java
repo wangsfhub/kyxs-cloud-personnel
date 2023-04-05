@@ -18,4 +18,6 @@ public interface RoleService extends IService<Role> {
     void copy(RoleCopyDto roleCopyDto);
 
     void addOrUpdate(RoleDto roleDto);
+
+    List<Role> getRolesByScopeIds(Long cusId, List<Long> scopeIds);
 }

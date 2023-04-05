@@ -16,6 +16,7 @@ import com.kyxs.cloud.personnel.service.DepartmentService;
 import com.kyxs.cloud.personnel.service.EmployeeService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -27,11 +28,10 @@ import java.util.Map;
 @Tag(name = "员工管理")
 @RestController
 @RequestMapping("/emp")
+@RequiredArgsConstructor
 public class EmployeeController extends BaseController {
-    @Autowired
-    private EmployeeService employeeService;
-    @Autowired
-    private DepartmentService departmentService;
+    private final EmployeeService employeeService;
+    private final DepartmentService departmentService;
 
     @PostMapping("/save")
     @Operation(summary = "新增/编辑")
@@ -96,16 +96,16 @@ public class EmployeeController extends BaseController {
         return R.ok(employeeService.getEmpInfoBySetId(setId,empId));
     }
 
-    @GetMapping("/all/{cusId}")
-    @Operation(summary = "查询所有员工翻译使用")
-    public Map<Long,String> getEmployees(@PathVariable(value = "cusId") Long cusId){
-        return employeeService.getEmployees(cusId);
-    }
-
     @DeleteMapping("/delete/{setId}/{id}")
     @Operation(summary = "删除")
     public R delete( @PathVariable(value = "setId") Long setId,@PathVariable(value = "id") Long id){
         employeeService.deleteBySetId(setId,id);
         return R.ok();
+    }
+
+    @GetMapping("/translate/list")
+    @Operation(summary = "查询所有员工翻译使用")
+    public Map<Long,String> getTranslateEmployees(@RequestParam("cusId") Long cusId, @RequestParam("ids") List<Long> ids){
+        return employeeService.getTranslateEmployees(cusId,ids);
     }
 }

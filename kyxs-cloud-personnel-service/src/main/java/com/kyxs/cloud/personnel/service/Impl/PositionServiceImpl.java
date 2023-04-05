@@ -1,12 +1,14 @@
 package com.kyxs.cloud.personnel.service.Impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.kyxs.cloud.core.base.entity.UserInfo;
 import com.kyxs.cloud.core.base.exception.BusinessException;
 import com.kyxs.cloud.core.base.mybatisplus.PageQuery;
 import com.kyxs.cloud.core.base.utils.UserInfoUtil;
+import com.kyxs.cloud.personnel.api.pojo.entity.Employee;
 import com.kyxs.cloud.personnel.api.pojo.entity.Position;
 import com.kyxs.cloud.personnel.mapper.PositionMapper;
 import com.kyxs.cloud.personnel.service.PositionService;
@@ -32,10 +34,10 @@ public class PositionServiceImpl extends ServiceImpl<PositionMapper, Position> i
     }
 
     @Override
-    public Map<Long, String> getPositions(Long cusId) {
+    public Map<Long, String> getTranslatePositions(Long cusId, List<Long> ids) {
         Map<Long, String> map = new HashMap<>();
         try {
-            List<Position> positions = baseMapper.selectList(new LambdaQueryWrapper<Position>().eq(Position::getCusId,cusId));
+            List<Position> positions = baseMapper.selectList(new QueryWrapper<Position>().select("id","post_name").eq("cus_id",cusId).in("id",ids));
             for (Position position : positions) {
                 map.put(position.getId(), position.getPostName());
             }
@@ -44,4 +46,5 @@ public class PositionServiceImpl extends ServiceImpl<PositionMapper, Position> i
         }
         return map;
     }
+
 }

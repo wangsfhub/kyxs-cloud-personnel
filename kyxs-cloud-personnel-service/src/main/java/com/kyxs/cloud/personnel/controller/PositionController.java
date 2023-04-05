@@ -1,6 +1,7 @@
 package com.kyxs.cloud.personnel.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 import com.kyxs.cloud.core.base.annotation.RepeatSubmit;
 import com.kyxs.cloud.core.base.controller.BaseController;
@@ -14,8 +15,8 @@ import com.kyxs.cloud.personnel.api.pojo.entity.Position;
 import com.kyxs.cloud.personnel.service.PositionService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,9 +26,9 @@ import java.util.Map;
 @Tag(name = "岗位管理")
 @RestController
 @RequestMapping("/post")
+@RequiredArgsConstructor
 public class PositionController extends BaseController {
-    @Autowired
-    private PositionService positionService;
+    private final PositionService positionService;
 
     @PostMapping("/save")
     @Operation(summary = "新增/编辑")
@@ -57,11 +58,7 @@ public class PositionController extends BaseController {
     public R updateStatus( @RequestBody PositionDto positionDto){
         UserInfo userInfo = UserInfoUtil.getUserInfo();
         if(positionDto.getId()!=null&& StringUtils.isNotEmpty(positionDto.getPostStatus())){
-            Position position = new Position();
-            position.setCusId(userInfo.getCusId());
-            position.setId(positionDto.getId());
-            position.setPostStatus(positionDto.getPostStatus());
-            positionService.updateById(position);
+            positionService.update(new UpdateWrapper<Position>().set("post_status",positionDto.getPostStatus()).eq("cus_id",userInfo.getCusId()).eq("id",positionDto.getId()));
         }
         return R.ok();
     }
@@ -72,17 +69,19 @@ public class PositionController extends BaseController {
         positionService.remove(new LambdaQueryWrapper<Position>().eq(Position::getId,Long.parseLong(id)).eq(Position::getCusId,userInfo.getCusId()));
         return R.ok();
     }
-    @GetMapping("/all/{cusId}")
-    @Operation(summary = "查询所有员工翻译使用")
-    public Map<Long,String> getPositions(@PathVariable(value = "cusId") Long cusId){
-        return positionService.getPositions(cusId);
-    }
+
     @GetMapping("/list/all")
     @Operation(summary = "查询所有岗位，下拉框显示")
     public R all(){
         UserInfo userInfo = UserInfoUtil.getUserInfo();
         List<Position> list = positionService.list(new LambdaQueryWrapper<Position>().eq(Position::getCusId,userInfo.getCusId()).orderByDesc(Position::getCreateTime));
         return R.ok(list);
+    }
+
+    @GetMapping("/translate/list")
+    @Operation(summary = "查询所有岗位翻译使用")
+    public Map<Long,String> getTranslatePositions(@RequestParam("cusId") Long cusId, @RequestParam("ids") List<Long> ids){
+        return positionService.getTranslatePositions(cusId,ids);
     }
 
 }

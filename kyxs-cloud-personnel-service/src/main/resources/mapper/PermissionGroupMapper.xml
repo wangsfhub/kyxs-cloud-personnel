@@ -41,4 +41,13 @@
             #{item}
         </foreach>
     </select>
+    <select id="getGroupsByRoleIds" resultType="com.kyxs.cloud.personnel.api.pojo.entity.PermissionGroup">
+        select pg.id,pg.cus_id,pg.group_name,pg.group_type,pg.group_desc from permission_group pg where pg.cus_id=#{cusId}
+        and EXISTS (
+        select rpr.id from roles_permission_r rpr where rpr.cus_id=pg.cus_id and rpr.group_id=pg.id and rpr.role_id in
+        <foreach collection="roleIds" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+        )
+    </select>
 </mapper>

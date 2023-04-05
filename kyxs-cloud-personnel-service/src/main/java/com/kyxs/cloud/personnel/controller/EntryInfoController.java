@@ -18,6 +18,7 @@ import com.kyxs.cloud.personnel.api.pojo.entity.*;
 import com.kyxs.cloud.personnel.service.*;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -29,19 +30,13 @@ import java.util.Map;
 @Tag(name = "入职管理")
 @RestController
 @RequestMapping("/entry")
+@RequiredArgsConstructor
 public class EntryInfoController extends BaseController {
-    @Autowired
-    private EntryInfoService entryInfoService;
-
-    @Autowired
-    private InfoSetService infoSetService;
-    @Autowired
-    private InfoItemService infoItemService;
-
-    @Autowired
-    private WechatFeignService wechatFeignService;
-    @Autowired
-    private MsgSendFeignService msgSendFeignService;
+    private final EntryInfoService entryInfoService;
+    private final InfoSetService infoSetService;
+    private final InfoItemService infoItemService;
+    private final WechatFeignService wechatFeignService;
+    private final MsgSendFeignService msgSendFeignService;
     @PostMapping("/list")
     @Operation(summary = "列表查询")
     public R list(@RequestBody PageQueryDTO pageQueryDTO){
